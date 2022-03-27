@@ -16,3 +16,4 @@ npm start
 
 # reference
 https://www.electronjs.org/docs/latest/tutorial/installation
+https://www.electronjs.org/docs/latest/tutorial/keyboard-shortcuts

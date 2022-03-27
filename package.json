@@ -1,9 +1,9 @@
 {
   "name": "51pwn_4_hackers",
   "version": "1.0.0",
-  "description": "Hello World!",
+  "description": "51pwn_4_hackers",
   "main": "main.js",
-  "author": "Jane Doe",
+  "author": "51pwn",
   "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.63",
