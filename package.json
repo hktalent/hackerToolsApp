@@ -19,6 +19,7 @@
     "make": "electron-forge make"
   },
   "dependencies": {
+    "@ag-grid-community/vue3": "^27.1.0",
     "electron-squirrel-startup": "^1.0.0"
   },
   "config": {
