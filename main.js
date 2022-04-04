@@ -11,7 +11,8 @@ const createWindow = () => {
     }
   })
 
-  win.loadFile('index.html')
+  // win.loadFile('index.html')
+  win.loadURL("https://51pwn.com/p2pchat.html")
   // win.webContents.openDevTools()
 }
 
