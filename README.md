@@ -71,3 +71,9 @@ npm start
 https://www.ag-grid.com/vue-data-grid/grid-interface/
 https://www.electronjs.org/docs/latest/tutorial/installation
 https://www.ag-grid.com/vue-data-grid/getting-started/
+
+
+# Donation
+| Wechat Pay | AliPay | Paypal | BTC Pay |BCH Pay |
+| --- | --- | --- | --- | --- |
+|<img src=https://github.com/hktalent/myhktools/blob/master/md/wc.png>|<img width=166 src=https://github.com/hktalent/myhktools/blob/master/md/zfb.png>|[paypal](https://www.paypal.me/pwned2019) **miracletalent@gmail.com**|<img width=166 src=https://github.com/hktalent/myhktools/blob/master/md/BTC.png>|<img width=166 src=https://github.com/hktalent/myhktools/blob/master/md/BCH.jpg>|
