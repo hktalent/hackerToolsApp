@@ -75,14 +75,11 @@ export default {
   },
   created () {
     if (this.$route.params.id) {
-      axios.get('/api/v1/rsc/s' + this.$route.params.id).then(resp => {
+      axios.get('/api/v1/rsc/s/' + this.$route.params.id).then(resp => {
         this.form = resp.data
-        return 0
-      }
-      ).catch(function (error) {
+      }).catch(function (error) {
         alert(error)
-      }
-      )
+      })
     }
   },
   methods: {

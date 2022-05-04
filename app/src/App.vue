@@ -3,11 +3,11 @@
     <el-container>
       <el-header background="trasla">
         <el-menu ref="menu" :router="true" :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleCommand" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-          <el-menu-item index="/#">Home</el-menu-item>
+          <el-menu-item index="/">Home</el-menu-item>
           <el-submenu index="1">
             <template slot="title"><i class="icon-fixed-width icon-cogs icon-1x"></i>RemoteConfig</template>
              <el-submenu index="1-4">
-              <template slot="title"><router-link to="/sshrmt"><div  class="sshrmt" @click="fnSt" id="addId">+add</div></router-link>
+              <template slot="title"><router-link to="/sshrmt"><div class="sshrmt" @click="fnSt" id="addId">+add</div></router-link>
               </template>
               <el-menu-item v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id" :index="'/conn/'+item.id">{{item.title}}</el-menu-item>
             </el-submenu>
@@ -66,7 +66,7 @@
     <iframe src="" class="ifrm" @load="autoSaveImg($event,item.id)" :id="'ifrm' + item.id"></iframe></a>
     </el-card>
   </el-tab-pane><el-tab-pane label="Remoute Config Manager" class="cfgrmt" name="RMCm1">
-            <keep-alive><router-view></router-view></keep-alive></el-tab-pane>
+            <router-view></router-view></el-tab-pane>
             <el-tab-pane :label="ncctt" name="curConn">
             <keep-alive><router-view name="curconn"></router-view></keep-alive></el-tab-pane>
           </el-tabs>
@@ -119,11 +119,14 @@ export default {
       curCC.click();
     },
     fnEdit (x) {
-      this.$router.push({path: '/sshrmt' + x})
+      this.fnSt()
+      this.$router.push({name: 'sshrmt',params: {
+        id: x
+      }})
     },
     fnSt1 (x) {
       if (x.$el.id === "pane-RMCm1") {
-        this.$router.push({path: '/sshrmt/'})
+        this.$router.push({name: 'sshrmt'})
       }
       if (x.$el.id === "pane-curConn") {
         this.$router.push({path: '/curconn'})
@@ -136,9 +139,7 @@ export default {
       this.$http.get('/api/v1/rmtsvlists').then(function(res) {
         this.aRmtSvsLists = res.data;
         this.rmcnlb = 'Remote Connection('+res.data.length+')'
-      },function(res){
-        console.log(res.status);
-      })
+      },function(res){})
     },
     saveImg (o, o1,x1) {
         if("IFRAME" !== o1.tagName || !o1.src) {
