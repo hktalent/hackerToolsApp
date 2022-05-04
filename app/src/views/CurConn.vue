@@ -1,4 +1,4 @@
-<template>
+<template><div style="height:100%">
 <el-table v-loading="loading" :data="rowData" stripe style="width: 100%" height="600" :default-sort="{prop: 'CreatedAt', order: 'descending'}">
     <el-table-column type="expand">
       <template slot-scope="props">
@@ -31,12 +31,17 @@
     <el-table-column label="org" prop="ipInfo.org" width="110px" :sortable="sortable"></el-table-column>
     <el-table-column label="CreatedAt" prop="CreatedAt" width="240" :sortable="sortable"></el-table-column>
     <el-table-column label="cmd" prop="cmd" :sortable="sortable" :show-overflow-tooltip="soft"><template slot="header">
-        <el-input
-          v-model="search"
-          size="mini"
-          placeholder="输入关键字搜索" @keyup="tmOsch($event)" />
+        <el-input class="myschtb" v-model="search" size="mini" placeholder="输入关键字搜索" @keyup="tmOsch($event)" />
       </template></el-table-column>
   </el-table>
+  <div class="block"><el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4"
+    :hide-on-single-page="hosp"
+    :page-sizes="pageSizes"
+    :page-size="pageSize"
+    layout="total, sizes, prev, pager, next, jumper"
+    :total="total">
+    </el-pagination>
+  </div></div>
 </template>
 <style>
 .demo-table-expand {
@@ -52,6 +57,11 @@
     margin-bottom: 0;
     width: 33%;
   }
+.el-table {
+  height: calc(-30px + 100%) !important;
+}
+.block{float: right}
+.myschtb{width:70% !important}
 </style>
 <script>
 export default {
@@ -59,6 +69,11 @@ export default {
   },
   data () {
     return {
+      pageSizes: [100, 200, 300, 400],
+      pageSize: 100,
+      total: 400,
+      hosp: true,
+      currentPage4: 1,
       loading: true,
       sortable: true,
       soft: true,
@@ -73,6 +88,12 @@ export default {
     this.getData()
   },
   methods: {
+    handleSizeChange (val) {
+      console.log(`每页 ${val} 条`)
+    },
+    handleCurrentChange (val) {
+      console.log(`当前页: ${val}`)
+    },
     tmOsch (e) {
       if (e.code === 13) {
         this.rowData = this.rowDataOld.filter(data => !this.search || JSON.stringify(data).toLowerCase().includes(this.search.toLowerCase()))
