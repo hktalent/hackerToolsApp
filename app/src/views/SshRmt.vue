@@ -63,11 +63,11 @@ export default {
     return {
       tags: [],
       form: {
-        title: 'Home Old Air',
+        title: '',
         tags: '',
-        ip: '192.168.0.100',
-        port: 5900,
-        user: 'xiatian',
+        ip: '',
+        port: 22,
+        user: '',
         p5wd: '',
         key: ''
       }
