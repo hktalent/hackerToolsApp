@@ -74,6 +74,16 @@ export default {
     }
   },
   created () {
+    if (this.$route.params.id) {
+      axios.get('/api/v1/rsc/s' + this.$route.params.id).then(resp => {
+        this.form = resp.data
+        return 0
+      }
+      ).catch(function (error) {
+        alert(error)
+      }
+      )
+    }
   },
   methods: {
     focusNext (nextRef) {
@@ -85,7 +95,6 @@ export default {
         aT.push(this.tags[i].text)
       }
       this.form.tags = aT.join(';')
-      console.log(this.form.tags)
       axios.post('/api/v1/rsc', this.form).then(resp => {
         if (resp.data.code > 0) {
           Message.success('save msg: ' + resp.data.msg)
