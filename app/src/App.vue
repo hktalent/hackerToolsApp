@@ -67,7 +67,7 @@
     </el-card>
   </el-tab-pane><el-tab-pane label="Remoute Config Manager" class="cfgrmt" name="RMCm1">
             <keep-alive><router-view></router-view></keep-alive></el-tab-pane>
-            <el-tab-pane label="Network Connection" name="curConn">
+            <el-tab-pane :label="ncctt" name="curConn">
             <keep-alive><router-view name="curconn"></router-view></keep-alive></el-tab-pane>
           </el-tabs>
         </el-main>
@@ -101,6 +101,7 @@ export default {
   data () {
     return {
       rmcnlb: '',
+      ncctt: 'Network Connection',
       aRmtSvsLists: [ ],
       fullScreen: false,
       wdwidth:"100px",
