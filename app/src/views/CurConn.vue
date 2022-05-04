@@ -28,14 +28,14 @@
     <el-table-column label="ip" prop="ip" width="120px" :sortable="sortable"></el-table-column>
     <el-table-column label="country" prop="ipInfo.country" width="110px" :sortable="sortable"></el-table-column>
     <el-table-column label="city" prop="ipInfo.city" width="110px" :sortable="sortable"></el-table-column>
-    <el-table-column label="org" prop="ipInfo.org" width="110px" :sortable="sortable"></el-table-column>
-    <el-table-column label="CreatedAt" prop="CreatedAt" width="240" :sortable="sortable"></el-table-column>
+    <el-table-column label="org" prop="ipInfo.org" :sortable="sortable"></el-table-column>
+    <el-table-column label="CreatedAt" :formatter="formatter" prop="CreatedAt" width="240" :sortable="sortable"></el-table-column>
     <el-table-column label="cmd" prop="cmd" :sortable="sortable" :show-overflow-tooltip="soft"><template slot="header">
         <el-input class="myschtb" v-model="search" size="mini" placeholder="输入关键字搜索" @keyup="tmOsch($event)" />
       </template></el-table-column>
   </el-table>
   <div class="block"><el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4"
-    :hide-on-single-page="hosp"
+    :background="sortable"
     :page-sizes="pageSizes"
     :page-size="pageSize"
     layout="total, sizes, prev, pager, next, jumper"
@@ -71,8 +71,7 @@ export default {
     return {
       pageSizes: [100, 200, 300, 400],
       pageSize: 100,
-      total: 400,
-      hosp: true,
+      total: 0,
       currentPage4: 1,
       loading: true,
       sortable: true,
@@ -89,10 +88,20 @@ export default {
   },
   methods: {
     handleSizeChange (val) {
-      console.log(`每页 ${val} 条`)
+      this.pageSize = val
+      this.getData()
+    },
+    getDate (s) {
+      var date = new Date(s)
+      var dateStr = date.getFullYear() + '-' + ('00' + (date.getMonth() + 1)).slice(-2) + '-' + ('00' + date.getDate()).slice(-2) + ' ' + ('00' + date.getHours()).slice(-2) + ':' + ('00' + date.getMinutes()).slice(-2) + ':' + ('00' + date.getSeconds()).slice(-2)
+      return dateStr
+    },
+    formatter (row, column) {
+      return this.getDate(row.CreatedAt)
     },
     handleCurrentChange (val) {
-      console.log(`当前页: ${val}`)
+      this.currentPage4 = val
+      this.getData()
     },
     tmOsch (e) {
       if (e.code === 13) {
@@ -100,11 +109,16 @@ export default {
       }
     },
     getData () {
-      this.$http.get('/api/v1/cclsts').then(function (res) {
-        this.rowData = res.data
+      this.loading = true
+      this.$http.get('/api/v1/cclsts?currentPage=' + this.currentPage4 + '&pageSize=' + this.pageSize).then(function (res) {
+        res.data = res.data || {}
+        this.rowData = res.data.list || []
+        this.total = res.data.count
         this.loading = false
       }, function (res) {
         console.log(res.status)
+        this.rowData = []
+        this.loading = false
       })
     }
   }
