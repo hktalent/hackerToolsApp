@@ -109,6 +109,7 @@ export default {
       value: '',
       drawer: false,
       direction: 'rtl',
+      oStopFlg: {},
       msg: 'Welcome to Your Vue.js App'
     }
   },
@@ -139,11 +140,18 @@ export default {
         if("IFRAME" !== o1.tagName || !o1.src) {
           return
         }
-        const xD = o1.contentWindow.document, xHo = xD.body, xx01 = xD.getElementById('terminal-container')
+        const xD = o1.contentWindow.document, xHo = xD.body, xx01 = xD.getElementById('terminal-container'),_t = this
+        _t.imgData = _t.imgData || {}
         if(xx01) {
-        window.setInterval(function() {
+        this.oStopFlg[x1] = window.setInterval(function() {
           html2canvas(xHo, {allowTaint: true, useCORS: true}).then(function(canvas) {
-            o.$http.post('/api/v1/rmtsvImg',{'imgData': canvas.toDataURL("image/webp", 0.6),'id': x1})
+            var x99 =  canvas.toDataURL("image/webp", 0.6)
+            if (x99 !== _t.imgData[x1])
+            {
+              _t.imgData[x1] = x99
+              o.$http.post('/api/v1/rmtsvImg',{'imgData':x99,'id': x1})
+              _t.upImgData(x1, x99)
+            }
           })
         },1000)
       }
@@ -167,15 +175,30 @@ export default {
           this.aRmtSvsLists.push( { 'id': szId, 'title': document.activeElement.innerText })
         }
         document.getElementById('img' + szId).style.display = 'none'
-        document.getElementById('ifrm' + szId).src = command
+        let oIfrm = document.getElementById('ifrm' + szId)
+        oIfrm.style.display = ''
+        oIfrm.src = command
       }
     },
     handleClose1 (done) {
       done()
     },
     disconnect (e, x1) {
-      const o1 = document.getElementById('ifrm' + x1)
-      o1.contentWindow.document.getElementById('disconnectID').click()
+      let o1 = document.getElementById('ifrm' + x1)
+      o1.style.display = 'none'
+      document.getElementById('img' + x1).style.display = ''
+      o1 = o1.contentWindow.document.getElementById('disconnectID')
+      if(o1)o1.click()
+      clearInterval(this.oStopFlg[x1])
+    },
+    upImgData (x1,d) {
+      for( let i = 0; i < this.aRmtSvsLists.length; i++) {
+        if( x1 === this.aRmtSvsLists[i].id )
+        {
+          this.aRmtSvsLists[i].imgData = d
+          break
+        }
+      }
     },
     fnMinWin (e) {
       myjs.fnMinWin(e.target.parentNode.parentNode.parentNode.parentNode, document)
