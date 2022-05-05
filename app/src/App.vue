@@ -100,9 +100,7 @@ export default {
   },
   data () {
     return {
-      bClk4Cfg: true,
       rmcnlb: '',
-      bRtFst: false,
       ncctt: 'Network Connection',
       aRmtSvsLists: [ ],
       fullScreen: false,
@@ -121,24 +119,26 @@ export default {
       curCC.click();
     },
     fnEdit (x) {
-      if(!!this.bRtFst) {
-        this.$router.push({path: '/'})
-      }
-      this.bRtFst = true
-      this.bClk4Cfg = false
-      this.fnSt()
-      this.bClk4Cfg = true
-      this.$router.push({name: 'sshrmt',params: {
-        id: x
-      }})
+      this.$router.push({name: 'sshrmt'}).catch(err => {})
+      let _t = this
+      setTimeout(() => {
+        _t.$router.push({'name': 'home'}).catch(err => {})
+        _t.sshrmtParm = {id: x}
+        _t.fnSt()
+      },33)
+      
     },
     fnSt1 (x) {
-      if(!this.bClk4Cfg)return
       if (x.$el.id === "pane-RMCm1") {
-        this.$router.push({name: 'sshrmt'})
+        if(this.sshrmtParm){
+          this.$router.push({name: 'sshrmt',params: this.sshrmtParm}).catch(err => {})
+          this.sshrmtParm = null
+        } else {
+          this.$router.push({name: 'sshrmt'}).catch(err => {})
+        }
       }
       if (x.$el.id === "pane-curConn") {
-        this.$router.push({path: '/curconn'})
+        this.$router.push({path: '/curconn'}).catch(err => {})
       }
     },
     fnSt () {
