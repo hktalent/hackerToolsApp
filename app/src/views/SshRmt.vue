@@ -62,6 +62,7 @@ export default {
   data () {
     return {
       tags: [],
+      lstId: '',
       form: {
         title: '',
         tags: '',
@@ -73,13 +74,22 @@ export default {
       }
     }
   },
-  created () {
-    if (this.$route.params.id) {
-      axios.get('/api/v1/rsc/s/' + this.$route.params.id).then(resp => {
-        this.form = resp.data
-      }).catch(function (error) {
-        alert(error)
-      })
+  mounted () {
+  },
+  watch: {
+    '$route.params': {
+      handler: function (x) {
+        if (this.$route.params.id && this.$route.params.id !== this.lstId) {
+          this.lstId = this.$route.params.id
+          axios.get('/api/v1/rsc/s/' + this.$route.params.id).then(resp => {
+            this.form = resp.data
+          }).catch(function (error) {
+            alert(error)
+          })
+        }
+      },
+      deep: true,
+      immediate: true
     }
   },
   methods: {
