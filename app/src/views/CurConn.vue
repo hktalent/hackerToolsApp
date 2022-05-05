@@ -31,7 +31,7 @@
     <el-table-column label="org" prop="ipInfo.org" :sortable="sortable"></el-table-column>
     <el-table-column label="CreatedAt" :formatter="formatter" prop="CreatedAt" width="240" :sortable="sortable"></el-table-column>
     <el-table-column label="cmd" prop="cmd" :sortable="sortable" :show-overflow-tooltip="soft"><template slot="header">
-        <el-input class="myschtb" v-model="search" size="mini" placeholder="输入关键字搜索" @keyup="tmOsch($event)" />
+        <el-input class="myschtb" v-model="search" size="mini" placeholder="输入关键字搜索" @keypress.stop="tmOsch($event)"/>
       </template></el-table-column>
   </el-table>
   <div class="block"><el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4"
