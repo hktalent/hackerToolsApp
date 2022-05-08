@@ -1,5 +1,5 @@
 <template>
-  <el-card class="box-card" shadow="hover">
+  <el-card class="box-card">
     <el-form ref="form">
       <el-row>
         <el-col :span="12">
@@ -27,7 +27,7 @@
       </el-row>
       <el-row>
         <el-col :span="24">
-          <el-input  size="small" type="textarea" :autosize="{ minRows: 8, maxRows: 15}" placeholder="please input user Key" v-model="form.key"></el-input>
+          <el-input class="myTat" size="small" type="textarea" :autosize="{ minRows: 8, maxRows: 15}" placeholder="please input user Key or windows domain name" v-model="form.key"></el-input>
         </el-col>
       </el-row>
       <el-row>
@@ -46,7 +46,10 @@
 
 .vue-tags-input,.ti-input{max-width:none !important}
 .el-row {
-margin:8px 0 8px 0;
+  margin:8px 0 8px 0;
+}
+.myTat textarea{
+  height:calc(-440px + 100vh) !important;
 }
 </style>
 <script>
