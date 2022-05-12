@@ -60,7 +60,7 @@
             <el-tab-pane :label="rmcnlb" class="myPaneCard" effect="dark">
     <el-card shadow="hover" v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id" :rmtHref="'/conn/'+item.id">
     <a href="#" @click="'#'+item.id">
-    <div class="winCtrl"><i id="fltMneu">{{item.title}}</i>  <i class="icon-cog" title="config" @click="fnEdit(item.id)"></i><i class="icon-eye-close" title="Disconnect" @click="disconnect($event,item.id)"></i><i class="icon-mail-reply" title="back to view" @click="fnMinWin"></i><i class="icon-external-link-sign" title="max window" @click="fnMaxWin"></i><i @click="fnFsc" class="icon-fullscreen" title="fullscreen"></i></div>
+    <div class="winCtrl"><i id="fltMneu">{{item.title}}</i>  <i class="icon-plus" title="Duplicate a window so that multiple windows open a target server" @click="fnDuplicate(item.id)"></i><i class="icon-cog" title="config" @click="fnEdit(item.id)"></i><i class="icon-eye-close" title="Disconnect" @click="disconnect($event,item.id)"></i><i class="icon-mail-reply" title="back to view" @click="fnMinWin"></i><i class="icon-external-link-sign" title="max window" @click="fnMaxWin"></i><i @click="fnFsc" class="icon-fullscreen" title="fullscreen"></i></div>
     <div class="myImg" :id="'img' + item.id" :idDt="item.id" @click="handleCommand('/conn/'+item.id)" title="This is the most recent view, click to start connecting"><img :src="item.imgData"></div>
     <i class="clearfix"></i>
     <iframe src="" class="ifrm" @load="autoSaveImg($event,item.id)" :id="'ifrm' + item.id"></iframe></a>
@@ -118,6 +118,14 @@ export default {
   methods: {
     webskt () {
       let socket = io("./ws");
+    },
+    fnDuplicate (szId) {
+      for ( let x = 0; x < this.aRmtSvsLists.length; x++ ) {
+        if( (this.aRmtSvsLists[x].id + '') === szId) {
+          this.aRmtSvsLists.push(this.aRmtSvsLists[x])
+          break
+        }
+      }
     },
     fnNcc () {
       curCC.click();
