@@ -1,7 +1,7 @@
 <template>
-<el-card class="box-card" shadow="hover"><div>
-51Pwn</div>
-</el-card>
+<div>
+51Pwn
+</div>
 </template>
 <style>
 .el-card.is-always-shadow, .el-card.is-hover-shadow:focus, .el-card.is-hover-shadow:hover {

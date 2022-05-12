@@ -69,10 +69,12 @@
             <router-view></router-view></el-tab-pane>
             <el-tab-pane :label="ncctt" name="curConn">
             <keep-alive><router-view name="curconn"></router-view></keep-alive></el-tab-pane>
+            <el-tab-pane label="WorkSpance">
+            <router-view name="cmwork"></router-view></el-tab-pane>
           </el-tabs>
         </el-main>
       </el-container>
-      <el-footer><i class="icon-play"></i>Footer</el-footer>
+      <el-footer><FooterComp></FooterComp></el-footer>
     </el-container>
   </div>
 </template>
