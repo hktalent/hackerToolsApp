@@ -1,5 +1,4 @@
 <template>
-  <el-card class="box-card">
     <el-form ref="form">
       <el-row>
         <el-col :span="12">
@@ -36,7 +35,6 @@
         </el-form-item>
       </el-row>
     </el-form>
-  </el-card>
 </template>
 <style>
 .el-form-item {

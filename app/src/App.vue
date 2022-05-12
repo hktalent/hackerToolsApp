@@ -79,6 +79,7 @@
 <script>
 import myjs from './myjs'
 import html2canvas from 'html2canvas'
+import { io } from 'socket.io-client'
 
 /* eslint-disable */
 export default {
@@ -115,6 +116,9 @@ export default {
     }
   },
   methods: {
+    webskt () {
+      let socket = io("./ws");
+    },
     fnNcc () {
       curCC.click();
     },
