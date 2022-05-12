@@ -2,7 +2,7 @@
   <div id="app">
     <el-container>
       <el-header background="trasla">
-        <el-menu ref="menu" :router="true" :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleCommand" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+        <el-menu ref="menu" router :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleCommand" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
           <el-menu-item index="/">Home</el-menu-item>
           <el-submenu index="1">
             <template slot="title"><i class="icon-fixed-width icon-cogs icon-1x"></i>RemoteConfig</template>

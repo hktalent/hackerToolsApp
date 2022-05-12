@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="yid">
 51Pwn
 </div>
 </template>
