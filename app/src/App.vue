@@ -121,8 +121,10 @@ export default {
     },
     fnDuplicate (szId) {
       for ( let x = 0; x < this.aRmtSvsLists.length; x++ ) {
-        if( (this.aRmtSvsLists[x].id + '') === szId) {
-          this.aRmtSvsLists.push(this.aRmtSvsLists[x])
+        if( this.aRmtSvsLists[x].id === szId) {
+          let x0 = JSON.parse(JSON.stringify(this.aRmtSvsLists[x]))
+          x0.id = x0.id + "*" + new Date().getTime()
+          this.aRmtSvsLists.push(x0)
           break
         }
       }
