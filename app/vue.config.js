@@ -20,8 +20,9 @@ module.exports = defineConfig({
         changeOrigin: true
       }
     }
+    // convertJsToTs: true,
+    // allowJs: true
   },
-
   transpileDependencies: true,
   publicPath: '',
 

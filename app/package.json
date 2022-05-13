@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "report": "vue-cli-service build --report",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
@@ -31,7 +32,6 @@
   },
   "main": "background.js",
   "dependencies": {
-    "@ag-grid-community/vue": "^27.2.1",
     "@johmun/vue-tags-input": "^2.1.0",
     "ag-grid-community": "^27.2.1",
     "ag-grid-vue": "^27.2.1",

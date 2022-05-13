@@ -16,11 +16,6 @@
     event-pubsub "4.3.0"
     js-message "1.0.7"
 
-"@ag-grid-community/vue@^27.2.1":
-  version "27.2.1"
-  resolved "https://registry.npmjs.org/@ag-grid-community/vue/-/vue-27.2.1.tgz"
-  integrity sha512-rLnTQBaRAC+8LXqfIvSHHFxNRJvkqFSYjUWNkDoL/Lg2kCwPvLnm8EI+UGQ/7DUI3jWxb74Bvs+F1QXPlNRXgA==
-
 "@ampproject/remapping@^2.1.0":
   version "2.1.2"
   resolved "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.1.2.tgz"
