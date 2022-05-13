@@ -262,10 +262,6 @@ body {
   position: relative;
   top:-15px;
 }
-.myImg img {
-  width:100%;
-  height:100%;
-}
 .myImg {
   width:100%;
   height:100%;
@@ -273,6 +269,10 @@ body {
   left: 0;
   top: 0;
   position: relative
+}
+.myImg img {
+  width:100%;
+  height:100%;
 }
 
 .myPaneCard{
