@@ -56,6 +56,7 @@ import { Message } from 'element-ui'
 import VueTagsInput from '@johmun/vue-tags-input'
 
 export default {
+  name: 'sshRmt',
   inject: ['getRmtData'],
   components: {
     VueTagsInput

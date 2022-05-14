@@ -7,12 +7,12 @@
           <el-submenu index="1">
             <template slot="title"><i class="icon-fixed-width icon-cogs icon-1x"></i>RemoteConfig</template>
              <el-submenu index="1-4">
-              <template slot="title"><router-link to="/sshrmt"><div class="sshrmt" @click="fnSt" id="addId">+add</div></router-link>
+              <template slot="title"><router-link to="/sshRmt"><div class="sshrmt" @click="fnSt" id="addId">+add</div></router-link>
               </template>
               <el-menu-item v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id" :index="'/conn/'+item.id">{{item.title}}</el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-menu-item index="/about">About</el-menu-item>
+          <el-menu-item index="/cmwork">About</el-menu-item>
         </el-menu>
       </el-header>
       <el-container>
@@ -69,7 +69,7 @@
             <router-view></router-view></el-tab-pane>
             <el-tab-pane :label="ncctt" name="curConn">
             <keep-alive><router-view name="curconn"></router-view></keep-alive></el-tab-pane>
-            <el-tab-pane label="WorkSpance">
+            <el-tab-pane label="WorkSpance" name="cmwork">
             <router-view name="cmwork"></router-view></el-tab-pane>
           </el-tabs>
         </el-main>
@@ -135,7 +135,7 @@ export default {
       curCC.click();
     },
     fnEdit (x) {
-      this.$router.push({name: 'sshrmt'}).catch(err => {})
+      this.$router.push({name: 'sshRmt'}).catch(err => {})
       let _t = this
       setTimeout(() => {
         _t.$router.push({'name': 'home'}).catch(err => {})
@@ -145,16 +145,19 @@ export default {
       
     },
     fnSt1 (x) {
-      if (x.$el.id === "pane-RMCm1") {
+      if (x.$el.id === 'pane-RMCm1' && this.$route.name !== 'sshRmt') {
         if(this.sshrmtParm){
-          this.$router.push({name: 'sshrmt',params: this.sshrmtParm}).catch(err => {})
+          this.$router.push({name: 'sshRmt',params: this.sshrmtParm}).catch(err => {})
           this.sshrmtParm = null
         } else {
-          this.$router.push({name: 'sshrmt'}).catch(err => {})
+          this.$router.push({name: 'sshRmt'}).catch(err => {})
         }
       }
-      if (x.$el.id === "pane-curConn") {
-        this.$router.push({path: '/curconn'}).catch(err => {})
+      if (x.$el.id === 'pane-curConn' && this.$route.name !== 'CurConn') {
+        this.$router.push({name: 'CurConn'})
+      }
+      if (x.$el.id === 'pane-cmwork' && this.$route.name !== 'cmwork') {
+        this.$router.push({name: 'cmwork'})
       }
     },
     fnSt () {

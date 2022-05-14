@@ -30,26 +30,23 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/cmwork',
+    name: 'cmwork',
     title: 'about 51pwn',
-    second: 'cmwork',
-    about: () => import('../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue')
   },
   {
-    path: '/sshrmt',
-    name: 'sshrmt',
+    path: '/sshRmt',
+    name: 'sshRmt',
     title: 'remote connection configuration',
     component: () => import('../views/SshRmt.vue')
   },
   {
-    path: '/curconn',
+    path: '/CurConn',
     name: 'CurConn',
-    second: 'curconn',
+    second: 'CurConn',
     title: 'current connection',
-    components: {
-      component: () => import('../views/CurConn.vue')
-    }
+    components: () => import('../views/CurConn.vue')
   },
   {
     path: '*',

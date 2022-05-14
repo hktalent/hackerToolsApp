@@ -65,6 +65,7 @@
 </style>
 <script>
 export default {
+  name: 'CurConn',
   components: {
   },
   data () {
