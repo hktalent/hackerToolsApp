@@ -36,10 +36,6 @@ const routes = [
     component: () => import('../views/SshRmt.vue')
   },
   {
-    path: '/img/icons/favicon.svg',
-    component: () => import('../assets/img/icons/favicon.svg')
-  },
-  {
     path: '*',
     redirect: '/error/404'
   }
