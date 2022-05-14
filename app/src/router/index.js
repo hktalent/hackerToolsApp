@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import AboutView from '../views/AboutView.vue'
 
 // 定义加载的路由数组
 const routerList = []
@@ -27,19 +27,17 @@ const routes = [
     path: '/',
     name: 'home',
     title: '51pwn hacker tools',
-    component: HomeView
-  },
-  {
-    path: '/cmwork',
-    name: 'cmwork',
-    title: 'about 51pwn',
-    component: () => import('../views/AboutView.vue')
+    component: AboutView
   },
   {
     path: '/sshRmt',
     name: 'sshRmt',
     title: 'remote connection configuration',
     component: () => import('../views/SshRmt.vue')
+  },
+  {
+    path: '/img/icons/favicon.svg',
+    component: () => import('../assets/img/icons/favicon.svg')
   },
   {
     path: '*',

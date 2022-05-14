@@ -12,7 +12,7 @@
               <el-menu-item v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id" :index="'/conn/'+item.id">{{item.title}}</el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-menu-item index="/cmwork">About</el-menu-item>
+          <el-menu-item index="/">About</el-menu-item>
         </el-menu>
       </el-header>
       <el-container>
@@ -28,8 +28,7 @@
                   <span slot="title">导航一</span>
                 </template>
                 <el-menu-item-group>
-                  <span slot="title">分组一</span>
-                  <el-menu-item index="2-1">选项1</el-menu-item>
+                  <el-menu-item index="x1" @click="fnMyClk('/HackTools/index.html')">Hack-Tools</el-menu-item>
                   <el-menu-item index="2-2">选项2</el-menu-item>
                 </el-menu-item-group>
                 <el-menu-item-group title="分组2">
@@ -56,8 +55,8 @@
           </el-scrollbar>
         </el-aside>
         <el-main style="height:calc(-100px + 100vh)">
-          <el-tabs type="border-card" style="height:100%;flex-grow:1;" @tab-click="fnSt1">
-            <el-tab-pane :label="rmcnlb" class="myPaneCard" effect="dark"><div id="CntTags" title="click filter"><a href="#" v-for="(item) in aRmtTagss" :key="item.tag" @click="filterMyCard(item.tag)">{{item.tag}}[ {{item.cnt}} ]</a></div>
+          <el-tabs  v-model="activeName" type="border-card" style="height:100%;flex-grow:1;" @tab-click="fnSt1">
+            <el-tab-pane :label="rmcnlb" class="myPaneCard" effect="dark" name="tb01"><div id="CntTags" title="click filter"><a href="#" v-for="(item) in aRmtTagss" :key="item.tag" @click="filterMyCard(item.tag)">{{item.tag}}[ {{item.cnt}} ]</a></div>
     <el-card shadow="hover" v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id" :rmtHref="'/conn/'+item.id">
     <a href="#" @click="'#'+item.id">
     <div class="winCtrl"><i id="fltMneu">{{item.title}}</i>  <i class="icon-plus" title="Duplicate a window so that multiple windows open a target server" @click="fnDuplicate(item.id)"></i><i class="icon-cog" title="config" @click="fnEdit(item.id)"></i><i class="icon-eye-close" title="Disconnect" @click="disconnect($event,item.id)"></i><i class="icon-mail-reply" title="back to view" @click="fnMinWin"></i><i class="icon-external-link-sign" title="max window" @click="fnMaxWin"></i><i @click="fnFsc" class="icon-fullscreen" title="fullscreen"></i></div>
@@ -69,8 +68,8 @@
             <router-view></router-view></el-tab-pane>
             <el-tab-pane :label="ncctt" name="curConn">
             <CurConn></CurConn></el-tab-pane>
-            <el-tab-pane label="WorkSpance" name="cmwork">
-            <router-view name="cmwork"></router-view></el-tab-pane>
+            <el-tab-pane label="WorkSpance" name="tb02">
+            <HomeView :src="ifrmSrc"></HomeView></el-tab-pane>
           </el-tabs>
         </el-main>
       </el-container>
@@ -103,6 +102,8 @@ export default {
   },
   data () {
     return {
+      activeName: 'tb01',
+      ifrmSrc: '',
       aRmtTagss: [],
       rmcnlb: '',
       ncctt: 'Network Connection',
@@ -153,9 +154,6 @@ export default {
         } else {
           this.$router.push({name: 'sshRmt'}).catch(err => {})
         }
-      }
-      if (x.$el.id === 'pane-cmwork' && this.$route.name !== 'cmwork') {
-        this.$router.push({name: 'cmwork'})
       }
     },
     fnSt () {
@@ -266,6 +264,10 @@ export default {
         }
       }
     },
+    fnMyClk (s) {
+      this.activeName = 'tb02'
+      this.ifrmSrc = s
+    },
     fnMinWin (e) {
       myjs.fnMinWin(e.target.parentNode.parentNode.parentNode.parentNode, document)
     },
@@ -292,6 +294,7 @@ export default {
 body {
   margin: 0
 }
+.el-main{padding:0 !important}
 .winCtrl i:hover{
   background-color: #f5bc42;
   color: red;
@@ -365,6 +368,7 @@ height: calc(-40px + 100%);
   padding-left: 65px
 }
 
+.el-card{background-color:#fff}
 .el-drawer {
   z-index: 99999;
   height: calc(-100px + 100vh);
@@ -372,7 +376,7 @@ height: calc(-40px + 100%);
 }
 
 .el-tab-pane{
-  height: calc(-198px + 100vh);
+  height: calc(-158px + 100vh);
   overflow: auto;
   padding:0 !important;
 }

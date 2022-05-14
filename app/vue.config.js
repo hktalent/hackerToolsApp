@@ -2,7 +2,7 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   devServer: {
     host: 'localhost',
-    port: 8081,
+    port: 8082,
     proxy: {
       '/api/v1/': {
         target: 'http://127.0.0.1:8081',
@@ -15,6 +15,11 @@ module.exports = defineConfig({
         changeOrigin: true
       },
       '/ssh/': {
+        target: 'http://127.0.0.1:8081',
+        ws: true,
+        changeOrigin: true
+      },
+      '/HackTools/': {
         target: 'http://127.0.0.1:8081',
         ws: true,
         changeOrigin: true

@@ -47,7 +47,7 @@
   margin:8px 0 8px 0;
 }
 .myTat textarea{
-  height:calc(-440px + 100vh) !important;
+  height:calc(-360px + 100vh) !important;
 }
 </style>
 <script>
