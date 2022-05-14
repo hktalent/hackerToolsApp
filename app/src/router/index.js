@@ -42,13 +42,6 @@ const routes = [
     component: () => import('../views/SshRmt.vue')
   },
   {
-    path: '/CurConn',
-    name: 'CurConn',
-    second: 'CurConn',
-    title: 'current connection',
-    components: () => import('../views/CurConn.vue')
-  },
-  {
     path: '*',
     redirect: '/error/404'
   }

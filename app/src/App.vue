@@ -57,7 +57,7 @@
         </el-aside>
         <el-main style="height:calc(-100px + 100vh)">
           <el-tabs type="border-card" style="height:100%;flex-grow:1;" @tab-click="fnSt1">
-            <el-tab-pane :label="rmcnlb" class="myPaneCard" effect="dark">
+            <el-tab-pane :label="rmcnlb" class="myPaneCard" effect="dark"><div id="CntTags" title="click filter"><a href="#" v-for="(item) in aRmtTagss" :key="item.tag" @click="filterMyCard(item.tag)">{{item.tag}}({{item.cnt}})</a>  </div>
     <el-card shadow="hover" v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id" :rmtHref="'/conn/'+item.id">
     <a href="#" @click="'#'+item.id">
     <div class="winCtrl"><i id="fltMneu">{{item.title}}</i>  <i class="icon-plus" title="Duplicate a window so that multiple windows open a target server" @click="fnDuplicate(item.id)"></i><i class="icon-cog" title="config" @click="fnEdit(item.id)"></i><i class="icon-eye-close" title="Disconnect" @click="disconnect($event,item.id)"></i><i class="icon-mail-reply" title="back to view" @click="fnMinWin"></i><i class="icon-external-link-sign" title="max window" @click="fnMaxWin"></i><i @click="fnFsc" class="icon-fullscreen" title="fullscreen"></i></div>
@@ -68,7 +68,7 @@
   </el-tab-pane><el-tab-pane label="Remoute Config Manager" class="cfgrmt" name="RMCm1">
             <router-view></router-view></el-tab-pane>
             <el-tab-pane :label="ncctt" name="curConn">
-            <keep-alive><router-view name="curconn"></router-view></keep-alive></el-tab-pane>
+            <CurConn></CurConn></el-tab-pane>
             <el-tab-pane label="WorkSpance" name="cmwork">
             <router-view name="cmwork"></router-view></el-tab-pane>
           </el-tabs>
@@ -103,6 +103,7 @@ export default {
   },
   data () {
     return {
+      aRmtTagss: [],
       rmcnlb: '',
       ncctt: 'Network Connection',
       aRmtSvsLists: [ ],
@@ -153,9 +154,6 @@ export default {
           this.$router.push({name: 'sshRmt'}).catch(err => {})
         }
       }
-      if (x.$el.id === 'pane-curConn' && this.$route.name !== 'CurConn') {
-        this.$router.push({name: 'CurConn'})
-      }
       if (x.$el.id === 'pane-cmwork' && this.$route.name !== 'cmwork') {
         this.$router.push({name: 'cmwork'})
       }
@@ -163,9 +161,44 @@ export default {
     fnSt () {
       window['tab-RMCm1'].click();
     },
+    upCntTags (a) {
+      let oT = {}
+      for (let i = 0; i < a.length; i++) {
+        if(a[i].tags) {
+          let x = a[i].tags.split(/[,;]/)
+          for (let j = 0; j < x.length; j++) {
+            if (!oT[x[j]]) {
+              oT[x[j]] = 0
+            }
+            oT[x[j]] += 1
+          }
+        }
+      }
+      let s1 = ""
+      this.aRmtTagss = [ { tag:'all', cnt:a.length } ]
+      for (var k in oT) {
+        this.aRmtTagss.push( { tag:k, cnt:oT[k] } )
+      }
+    },
+    filterMyCard(tag) {
+      if ('all' == tag) {
+        this.aRmtSvsLists = this.aRmtSvsListsOld
+        return
+      }
+      this.aRmtSvsListsOld = this.aRmtSvsListsOld || this.aRmtSvsLists
+      let a = this.aRmtSvsListsOld
+      let a1 = []
+      for (let i = 0; i < a.length; i++) {
+        if(-1 < a[i].tags.indexOf(tag)) {
+          a1.push(a[i])
+        }
+      }
+      this.aRmtSvsLists = a1
+    },
     getRmtData () {
       this.$http.get('/api/v1/rmtsvlists').then(function(res) {
-        this.aRmtSvsLists = res.data;
+        this.aRmtSvsLists = res.data
+        this.upCntTags(res.data)
         this.rmcnlb = 'Remote Connection('+res.data.length+')'
       },function(res){})
     },
@@ -259,6 +292,12 @@ export default {
 body {
   margin: 0
 }
+.winCtrl i:hover{
+  background-color: #f5bc42;
+  color: red;
+}
+#CntTags {left:15%;float: right;top: 0;position: absolute;}
+#CntTags a{padding: 0 10px 0 0;}
 .sshrmt{width:100% !important;background-color:#004344 !important;color:#0ff}
 .winCtrl{
   float: right;
