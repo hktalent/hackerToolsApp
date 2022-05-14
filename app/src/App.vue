@@ -57,7 +57,7 @@
         </el-aside>
         <el-main style="height:calc(-100px + 100vh)">
           <el-tabs type="border-card" style="height:100%;flex-grow:1;" @tab-click="fnSt1">
-            <el-tab-pane :label="rmcnlb" class="myPaneCard" effect="dark"><div id="CntTags" title="click filter"><a href="#" v-for="(item) in aRmtTagss" :key="item.tag" @click="filterMyCard(item.tag)">{{item.tag}}({{item.cnt}})</a>  </div>
+            <el-tab-pane :label="rmcnlb" class="myPaneCard" effect="dark"><div id="CntTags" title="click filter"><a href="#" v-for="(item) in aRmtTagss" :key="item.tag" @click="filterMyCard(item.tag)">{{item.tag}}[ {{item.cnt}} ]</a></div>
     <el-card shadow="hover" v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id" :rmtHref="'/conn/'+item.id">
     <a href="#" @click="'#'+item.id">
     <div class="winCtrl"><i id="fltMneu">{{item.title}}</i>  <i class="icon-plus" title="Duplicate a window so that multiple windows open a target server" @click="fnDuplicate(item.id)"></i><i class="icon-cog" title="config" @click="fnEdit(item.id)"></i><i class="icon-eye-close" title="Disconnect" @click="disconnect($event,item.id)"></i><i class="icon-mail-reply" title="back to view" @click="fnMinWin"></i><i class="icon-external-link-sign" title="max window" @click="fnMaxWin"></i><i @click="fnFsc" class="icon-fullscreen" title="fullscreen"></i></div>

@@ -7,11 +7,11 @@
 
 ## server
 ```
-git clone https://github.com/hktalent/go4Hacker
-cd go4Hacker
+git clone https://github.com/hktalent/goSqlite_gorm
+cd goSqlite_gorm
 go build 
- ./go4Hacker serve -4 0.0.0.0 -domain 51pwn.com -lang zh-CN -http=":8080"
-open http://0.0.0.0:8080
+ ./main
+open http://0.0.0.0:8081
 ```
 
 ## install
