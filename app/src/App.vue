@@ -4,14 +4,6 @@
       <el-header background="trasla">
         <el-menu ref="menu" router :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleCommand" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
           <el-menu-item index="/">Home</el-menu-item>
-          <el-submenu index="1">
-            <template slot="title"><i class="icon-fixed-width icon-cogs icon-1x"></i>RemoteConfig</template>
-             <el-submenu index="1-4">
-              <template slot="title"><router-link to="/sshRmt"><div class="sshrmt" @click="fnSt" id="addId">+add</div></router-link>
-              </template>
-              <el-menu-item v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id" :index="'/conn/'+item.id">{{item.title}}</el-menu-item>
-            </el-submenu>
-          </el-submenu>
           <el-menu-item index="/">About</el-menu-item>
         </el-menu>
       </el-header>
@@ -57,7 +49,7 @@
         <el-main style="height:calc(-100px + 100vh)">
           <el-tabs  v-model="activeName" type="border-card" style="height:100%;flex-grow:1;" @tab-click="fnSt1">
             <el-tab-pane :label="rmcnlb" class="myPaneCard" effect="dark" name="tb01"><div id="CntTags" title="click filter"><a href="#" v-for="(item) in aRmtTagss" :key="item.tag" @click="filterMyCard(item.tag)">{{item.tag}}[ {{item.cnt}} ]</a></div>
-    <el-card shadow="hover" v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id" :rmtHref="'/conn/'+item.id">
+    <el-card shadow="hover" v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id">
     <a href="#" @click="'#'+item.id">
     <div class="winCtrl"><i id="fltMneu">{{item.title}}</i>  <i class="icon-plus" title="Duplicate a window so that multiple windows open a target server" @click="fnDuplicate(item.id)"></i><i class="icon-cog" title="config" @click="fnEdit(item.id)"></i><i class="icon-eye-close" title="Disconnect" @click="disconnect($event,item.id)"></i><i class="icon-mail-reply" title="back to view" @click="fnMinWin"></i><i class="icon-external-link-sign" title="max window" @click="fnMaxWin"></i><i @click="fnFsc" class="icon-fullscreen" title="fullscreen"></i></div>
     <div class="myImg" :id="'img' + item.id" :idDt="item.id" @click="handleCommand('/conn/'+item.id)" title="This is the most recent view, click to start connecting"><img :src="item.imgData"></div>
