@@ -1,14 +1,14 @@
-<template><iframe @src="ifrmSrc" @load="fnSetIp()" id="hktifrm"></iframe></template>
+<template><iframe :src="ifrmSrc" @load="fnSetIp()" id="hktifrm"></iframe></template>
 
 <script>
 // @ is an alias to /src
 export default {
   data () {
     return {
-      ifrmSrc: ''
+      ifrmSrc: './HackTools/index.html'
     }
   },
-  name: 'HomeView',
+  name: 'HackTools',
   components: {
   },
   methods: {

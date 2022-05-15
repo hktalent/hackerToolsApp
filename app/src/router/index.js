@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AboutView from '../views/AboutView.vue'
+import SshRmt from '../views/SshRmt.vue'
+import TargetMap from '../components/TargetMap.vue'
+import HackTools from '../publicComponents/HackTools.vue'
 
 // 定义加载的路由数组
 const routerList = []
@@ -33,7 +36,25 @@ const routes = [
     path: '/sshRmt',
     name: 'sshRmt',
     title: 'remote connection configuration',
-    component: () => import('../views/SshRmt.vue')
+    component: SshRmt
+  },
+  {
+    path: '/HackTools',
+    name: 'HackTools',
+    title: 'Hack Tools',
+    components: {
+      default: SshRmt,
+      targetMap: HackTools
+    }
+  },
+  {
+    path: '/TargetMap',
+    name: 'TargetMap',
+    title: 'Target Map',
+    components: {
+      default: SshRmt,
+      targetMap: TargetMap
+    }
   },
   {
     path: '*',

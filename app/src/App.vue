@@ -21,8 +21,8 @@
                   <span slot="title">导航一</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="x1" @click="fnMyClk('/HackTools/index.html')">Hack-Tools</el-menu-item>
-                  <el-menu-item index="2-2">选项2</el-menu-item>
+                  <el-menu-item index="x1" @click="fnMyClkRt('HackTools')">Hack-Tools</el-menu-item>
+                  <el-menu-item index="x2" @click="fnMyClkRt('TargetMap')">TargetMap</el-menu-item>
                 </el-menu-item-group>
                 <el-menu-item-group title="分组2">
                   <el-menu-item index="2-3">选项3</el-menu-item>
@@ -61,8 +61,8 @@
             <router-view></router-view></el-tab-pane>
             <el-tab-pane :label="ncctt" name="curConn">
             <CurConn></CurConn></el-tab-pane>
-            <el-tab-pane label="WorkSpance" name="tb02">
-            <HomeView :src="ifrmSrc"></HomeView></el-tab-pane>
+            <el-tab-pane label="WorkSpance" name="tb02"><router-view name="targetMap"></router-view>
+            </el-tab-pane>
           </el-tabs>
         </el-main>
       </el-container>
@@ -130,10 +130,10 @@ export default {
       curCC.click();
     },
     fnEdit (x) {
-      this.$router.push({name: 'sshRmt'}).catch(err => {})
+      this.$router.push({name: 'sshRmt', replace: true}).catch(err => {})
       let _t = this
       setTimeout(() => {
-        _t.$router.push({'name': 'home'}).catch(err => {})
+        _t.$router.push({'name': 'home', replace: true}).catch(err => {})
         _t.sshrmtParm = {id: x}
         _t.fnSt()
       },33)
@@ -142,10 +142,10 @@ export default {
     fnSt1 (x) {
       if (x.$el.id === 'pane-RMCm1' && this.$route.name !== 'sshRmt') {
         if(this.sshrmtParm){
-          this.$router.push({name: 'sshRmt',params: this.sshrmtParm}).catch(err => {})
+          this.$router.push({name: 'sshRmt',params: this.sshrmtParm, replace: true}).catch(err => {})
           this.sshrmtParm = null
         } else {
-          this.$router.push({name: 'sshRmt'}).catch(err => {})
+          this.$router.push({name: 'sshRmt', replace: true}).catch(err => {})
         }
       }
     },
@@ -257,9 +257,11 @@ export default {
         }
       }
     },
-    fnMyClk (s) {
+    fnMyClkRt (s) {
       this.activeName = 'tb02'
-      this.ifrmSrc = s
+      if (this.$route.name !== s) {
+        this.$router.push({name: s, replace: true}).catch(err => {})
+      }
     },
     fnMinWin (e) {
       myjs.fnMinWin(e.target.parentNode.parentNode.parentNode.parentNode, document)
