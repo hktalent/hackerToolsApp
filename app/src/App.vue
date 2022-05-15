@@ -85,7 +85,7 @@ export default {
       activeName: 'tb01',
       ifrmSrc: '',
       aRmtTagss: [],
-      rmcnlb: '',
+      rmcnlb: 'Remote Connection',
       ncctt: 'Network Connection',
       aRmtSvsLists: [ ],
       fullScreen: false,
