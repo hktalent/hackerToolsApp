@@ -5,6 +5,8 @@ logs
 out/
 node_modules
 package-lock.json
+mydbfile.db*
+dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
