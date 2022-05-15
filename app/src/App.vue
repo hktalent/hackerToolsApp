@@ -18,32 +18,12 @@
               <el-submenu index="2">
                 <template slot="title">
                   <i class="el-icon-location"></i>
-                  <span slot="title">导航一</span>
                 </template>
                 <el-menu-item-group>
                   <el-menu-item index="x1" @click="fnMyClkRt('HackTools')">Hack-Tools</el-menu-item>
                   <el-menu-item index="x2" @click="fnMyClkRt('TargetMap')">TargetMap</el-menu-item>
                 </el-menu-item-group>
-                <el-menu-item-group title="分组2">
-                  <el-menu-item index="2-3">选项3</el-menu-item>
-                </el-menu-item-group>
-                <el-submenu index="2-4">
-                  <span slot="title">选项4</span>
-                  <el-menu-item index="2-4-1">选项1</el-menu-item>
-                </el-submenu>
               </el-submenu>
-              <el-menu-item index="3">
-                <i class="el-icon-menu"></i>
-                <span slot="title">导航二</span>
-              </el-menu-item>
-              <el-menu-item index="4" disabled>
-                <i class="el-icon-document"></i>
-                <span slot="title">导航三</span>
-              </el-menu-item>
-              <el-menu-item index="5">
-                <i class="el-icon-setting"></i>
-                <span slot="title">导航四</span>
-              </el-menu-item>
             </el-menu>
           </el-scrollbar>
         </el-aside>
@@ -62,6 +42,12 @@
             <el-tab-pane :label="ncctt" name="curConn">
             <CurConn></CurConn></el-tab-pane>
             <el-tab-pane label="WorkSpance" name="tb02"><router-view name="targetMap"></router-view>
+             <!-- <el-tabs :tab-position="tabPosition">
+    <el-tab-pane label="User">User</el-tab-pane>
+    <el-tab-pane label="Config">Config</el-tab-pane>
+    <el-tab-pane label="Role">Role</el-tab-pane>
+    <el-tab-pane label="Task">Task</el-tab-pane>
+  </el-tabs> -->
             </el-tab-pane>
           </el-tabs>
         </el-main>
@@ -95,6 +81,7 @@ export default {
   },
   data () {
     return {
+      tabPosition: 'right',
       activeName: 'tb01',
       ifrmSrc: '',
       aRmtTagss: [],
