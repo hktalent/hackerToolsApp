@@ -47,8 +47,8 @@
             </el-menu>
           </el-scrollbar>
         </el-aside>
-        <el-main style="height:calc(-100px + 100vh)">
-          <el-tabs  v-model="activeName" type="border-card" style="height:100%;flex-grow:1;" @tab-click="fnSt1">
+        <el-main>
+          <el-tabs  v-model="activeName" type="border-card" @tab-click="fnSt1">
             <el-tab-pane :label="rmcnlb" class="myPaneCard" effect="dark" name="tb01"><div id="CntTags" title="click filter"><a href="#" v-for="(item) in aRmtTagss" :key="item.tag" @click="filterMyCard(item.tag)">{{item.tag}}[ {{item.cnt}} ]</a></div>
     <el-card shadow="hover" v-for="(item) in aRmtSvsLists" :key="item.id" :id="'cdId'+item.id" :label="item.title" :name="item.id">
     <a href="#" @click="'#'+item.id">
@@ -289,7 +289,7 @@ export default {
 body {
   margin: 0
 }
-.el-main{padding:0 !important}
+.el-main{padding:0 !important;height:calc(-110px + 100vh)}
 .winCtrl i:hover{
   background-color: #f5bc42;
   color: red;
@@ -371,7 +371,7 @@ height: calc(-40px + 100%);
 }
 
 .el-tab-pane{
-  height: calc(-158px + 100vh);
+  height: calc(-188px + 100vh);
   overflow: auto;
   padding:0 !important;
 }

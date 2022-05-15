@@ -29,7 +29,7 @@
           <el-input class="myTat" size="small" type="textarea" :autosize="{ minRows: 8, maxRows: 15}" placeholder="please input user Key or windows domain name" v-model="form.key"></el-input>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row class="myrow">
         <el-form-item label-width="0">
           <el-button type="primary" round elevation="19" @click="saveSshConfig" ref="r7">保存</el-button>
         </el-form-item>
@@ -37,6 +37,8 @@
     </el-form>
 </template>
 <style>
+.myrow {;}
+.myrow .el-form-item{padding:0;height:auto !important;margin:0 !important}
 .el-form-item {
   text-align: center;
   padding-top: 20px;
@@ -47,7 +49,7 @@
   margin:8px 0 8px 0;
 }
 .myTat textarea{
-  height:calc(-360px + 100vh) !important;
+  height:calc(-365px + 100vh) !important;
 }
 </style>
 <script>
