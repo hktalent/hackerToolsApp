@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import SshRmt from '../views/SshRmt.vue'
 import TargetMap from '../components/TargetMap.vue'
 import HackTools from '../publicComponents/HackTools.vue'
+import SubDomain from '../publicComponents/SubDomain.vue'
 
 // 定义加载的路由数组
 const routerList = []
@@ -37,6 +38,15 @@ const routes = [
     name: 'sshRmt',
     title: 'remote connection configuration',
     component: SshRmt
+  },
+  {
+    path: '/SubDomain',
+    name: 'SubDomain',
+    title: 'SubDomain Tools',
+    components: {
+      default: SshRmt,
+      targetMap: SubDomain
+    }
   },
   {
     path: '/HackTools',

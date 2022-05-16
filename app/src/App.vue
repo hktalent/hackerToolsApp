@@ -22,6 +22,7 @@
                 <el-menu-item-group>
                   <el-menu-item index="x1" @click="fnMyClkRt('HackTools')">Hack-Tools</el-menu-item>
                   <el-menu-item index="x2" @click="fnMyClkRt('TargetMap')">TargetMap</el-menu-item>
+                  <el-menu-item index="x3" @click="fnMyClkRt('SubDomain')">SubDomain Scan</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
             </el-menu>
@@ -118,15 +119,11 @@ export default {
     },
     fnEdit (x) {
       this.$router.push({name: 'sshRmt', replace: true}).catch(err => {})
-      let _t = this
-      setTimeout(() => {
-        _t.$router.push({'name': 'home', replace: true}).catch(err => {})
-        _t.sshrmtParm = {id: x}
-        _t.fnSt()
-      },33)
-      
     },
     fnSt1 (x) {
+      if (x.$el.id === 'pane-tb02') {
+        this.fnMyClkRt('SubDomain')
+      }
       if (x.$el.id === 'pane-RMCm1' && this.$route.name !== 'sshRmt') {
         if(this.sshrmtParm){
           this.$router.push({name: 'sshRmt',params: this.sshrmtParm, replace: true}).catch(err => {})
