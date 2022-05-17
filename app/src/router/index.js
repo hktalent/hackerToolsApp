@@ -37,7 +37,10 @@ const routes = [
     path: '/sshRmt',
     name: 'sshRmt',
     title: 'remote connection configuration',
-    component: SshRmt
+    components: {
+      default: SshRmt,
+      targetMap: HackTools
+    }
   },
   {
     path: '/SubDomain',
@@ -73,7 +76,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   base: process.env.BASE_URL,
   routes
 })

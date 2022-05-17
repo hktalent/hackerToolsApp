@@ -118,7 +118,9 @@ export default {
       curCC.click();
     },
     fnEdit (x) {
-      this.$router.push({name: 'sshRmt', replace: true}).catch(err => {})
+      this.activeName = 'RMCm1'
+      this.$router.push({name: 'home', replace: true}).catch(err => {})
+      this.$router.push({name: 'sshRmt', replace: true,params: { id:x }}).catch(err => {})
     },
     fnSt1 (x) {
       if (x.$el.id === 'pane-tb02') {
