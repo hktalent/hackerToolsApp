@@ -87,6 +87,8 @@ export default {
           this.lstId = this.$route.params.id
           axios.get('/api/v1/rsc/s/' + this.$route.params.id).then(resp => {
             this.form = resp.data
+            this.tags = (resp.data.tags || '').split(/[,;]/)
+            this.form.tags = ''
           }).catch(function (error) {
             alert(error)
           })
