@@ -1,6 +1,8 @@
 <template>
-<el-card class="box-card" shadow="hover"><div>
-51Pwn</div>
+<el-card class="box-card" shadow="hover"><div ref="myMark">
+</div>
+<div ref="mdCode" style="display:none">
+</div>
 </el-card>
 </template>
 <style>
@@ -10,10 +12,23 @@
 }
 </style>
 <script>
+import { marked } from 'marked'
+// import axios from 'axios'
 export default {
   data () {
     return {
     }
+  },
+  filters: {
+    marked: marked
+  },
+  mounted () {
+    this.$refs.myMark.innerHTML = marked.parse(this.$refs.mdCode.innerText)
+    // axios.get('/views/test.js', this.form).then(resp => {
+    //   this.$refs.myMark.innerHTML = marked.parse(resp.data)
+    // }).catch(function (error) {
+    //   alert(error)
+    // })
   }
 }
 </script>

@@ -24,12 +24,12 @@ export default {
       }
     }
   },
+  methods: {
+    getData (s) {
+    }
+  },
   created () {
     this.getData()
-  },
-  methods: {
-    getDate (s) {
-    }
   }
 }
 </script>

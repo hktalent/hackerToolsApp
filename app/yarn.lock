@@ -6958,7 +6958,7 @@ getpass@^0.1.1:
 
 github-markdown-css@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.yarnpkg.com/github-markdown-css/-/github-markdown-css-4.0.0.tgz#be9f4caf7a389228d4c368336260ffc909061f35"
+  resolved "https://registry.npmjs.org/github-markdown-css/-/github-markdown-css-4.0.0.tgz"
   integrity sha512-mH0bcIKv4XAN0mQVokfTdKo2OD5K8WJE9+lbMdM32/q0Ie5tXgVN/2o+zvToRMxSTUuiTRcLg5hzkFfOyBYreg==
 
 gl-matrix@^3.3.0:
@@ -9245,6 +9245,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+marked@^4.0.16:
+  version "4.0.16"
+  resolved "https://registry.npmjs.org/marked/-/marked-4.0.16.tgz"
+  integrity sha512-wahonIQ5Jnyatt2fn8KqF/nIqZM8mh3oRu2+l5EANGMhu6RFjiSG52QNE2eWzFMI94HqYSgN184NurgNG6CztA==
+
 marky@^1.2.2:
   version "1.2.4"
   resolved "https://registry.npmmirror.com/marky/-/marky-1.2.4.tgz"
@@ -10726,7 +10731,7 @@ pretty@2.0.0, pretty@^2.0.0:
 
 prismjs@^1.22.0:
   version "1.28.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.28.0.tgz#0d8f561fa0f7cf6ebca901747828b149147044b6"
+  resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.28.0.tgz"
   integrity sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==
 
 process-nextick-args@~2.0.0:
@@ -13326,7 +13331,7 @@ vue-loader@^17.0.0:
 
 vue-okr-tree@^1.0.10:
   version "1.0.10"
-  resolved "https://registry.yarnpkg.com/vue-okr-tree/-/vue-okr-tree-1.0.10.tgz#532893c9d1db14936a01693129674443e095058c"
+  resolved "https://registry.npmjs.org/vue-okr-tree/-/vue-okr-tree-1.0.10.tgz"
   integrity sha512-DIFc3yc5dR015qZQBrF5aGoWCiGtdgSBfyGiOjv5SwKxufJhQXZzyBS14bc0wtEw8KTbzRShb3PHeYxQS5CglA==
   dependencies:
     core-js "^2.6.5"

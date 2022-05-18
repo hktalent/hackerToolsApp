@@ -1,0 +1,124 @@
+@import url("//unpkg.com/element-ui@2.15.7/lib/theme-chalk/index.css");
+@import url("font-awesome.css");
+
+body {
+  margin: 0
+}
+.el-main{padding:0 !important;height:calc(-110px + 100vh)}
+.winCtrl i:hover{
+  background-color: #f5bc42;
+  color: red;
+}
+#CntTags {left:15%;float: right;top: 0;position: absolute;}
+#CntTags a{padding: 0 10px 0 0;}
+.sshrmt{width:100% !important;background-color:#004344 !important;color:#0ff}
+.winCtrl{
+  float: right;
+  position: relative;
+  top:-15px;
+}
+.myImg {
+  width:100%;
+  height:100%;
+  float:left;
+  left: 0;
+  top: 0;
+  position: relative
+}
+.myImg img {
+  width:100%;
+  height:100%;
+}
+
+.myPaneCard{
+  flex-flow: row wrap;
+  justify-content:space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+  display: -webkit-flex;
+  display: flex;
+}
+.myPaneCard .el-card{width:30%;height:240px;margin: 10px;}
+.maxWin {
+  position: fixed;
+  float: left;
+  top: 0;
+  left: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index:999999
+}
+
+.el-card.is-always-shadow, .el-card.is-hover-shadow:focus, .el-card.is-hover-shadow:hover {
+    -webkit-box-shadow: 0 4px 36px 0 rgba(0, 0,0, .9);
+    box-shadow:0 4px 36px 0 rgba(0, 0,0, .9)
+}
+.winCtrl i{margin:3px !important;cursor:pointer}
+.myPaneCard .ifrm,.myPaneCard img{
+border:0;
+margin: 0;
+padding: 0;
+width:100%;
+height: calc(-40px + 100%);
+}
+.el-card__body {
+  padding:20px 0 0 0;
+  width:100%;
+  height:100%
+}
+.el-header {
+  width: 100vw;
+  padding: 0;
+  padding:0;
+}
+
+.el-menu-demo {
+  padding-left: 65px
+}
+
+.el-card{background-color:#fff}
+.el-drawer {
+  z-index: 99999;
+  height: calc(-100px + 100vh);
+  margin-top: 60px
+}
+
+.el-tab-pane{
+  height: calc(-188px + 100vh);
+  overflow: auto;
+  padding:0 !important;
+}
+
+.myscrollbar {
+  height: 100%;
+}
+
+.myscrollbar>.el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+
+.el-dropdown-link {
+  cursor: pointer;
+  color: #409EFF;
+}
+
+.el-icon-arrow-down {
+  font-size: 12px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both
+}
