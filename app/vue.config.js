@@ -38,6 +38,18 @@ module.exports = defineConfig({
     // convertJsToTs: true,
     // allowJs: true
   },
+  // markdowm文件展示配置
+  chainWebpack: config => {
+    config.module
+      .rule('md')
+      .test(/\.md/)
+      .use('html-loader')
+      .loader('html-loader')
+      .end()
+      .use('markdown-loader')
+      .loader('markdown-loader')
+      .end()
+  },
   transpileDependencies: true,
   publicPath: '',
 
