@@ -43,6 +43,7 @@
     "core-js": "^3.8.3",
     "d3": "^7.4.4",
     "element-ui": "^2.15.8",
+    "github-markdown-css": "^5.1.0",
     "html2canvas": "^1.4.1",
     "htmlparser2": "^8.0.1",
     "jquery": "^3.6.0",

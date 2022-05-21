@@ -15,7 +15,7 @@ export default {
   },
   mounted () {
     this.$http.get('/md/test.md').then(resp => {
-      this.$refs.myMark.innerHTML = marked.parse(resp.body)
+      this.$refs.myMark.innerHTML = marked.parseInline(resp.body)
     })
   }
 }

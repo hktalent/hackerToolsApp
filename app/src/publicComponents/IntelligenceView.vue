@@ -18,7 +18,15 @@ export default {
       activeName: 'git'
     }
   },
+  methods: {
+    async getEsData (q) {
+      const response = await fetch('http://127.0.0.1:9200/intelligence_index/_search?q=' + q + '&sort=modified:desc&pretty=true&track_total_hits=true')
+      const data = await response.text()
+      console.log(data)
+    }
+  },
   mounted () {
+    this.getEsData('(database_specific.github_reviewed:true) AND (database_specific.severity:CRITICAL)')
   }
 }
 </script>
