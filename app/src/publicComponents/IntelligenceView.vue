@@ -2,21 +2,16 @@
   <el-tabs v-model="activeName" tab-position="right" >
     <el-tab-pane label="Git" name="git">
     </el-tab-pane>
-    <el-tab-pane label="Config">Config</el-tab-pane>
-    <el-tab-pane label="Role">Role</el-tab-pane>
+    <el-tab-pane label="Google">Google</el-tab-pane>
+    <el-tab-pane label="Twitter">Twitter</el-tab-pane>
     <el-tab-pane label="Task">Task</el-tab-pane>
   </el-tabs>
 </template>
 <style>
-.box-card{width:100%;height:90%;}
-.el-card.is-always-shadow,
-.el-card.is-hover-shadow:focus,
-.el-card.is-hover-shadow:hover {
-  -webkit-box-shadow: 0 4px 36px 0 rgba(0, 0, 0, .9);
-  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, .9)
-}
 </style>
 <script>
+// http://127.0.0.1:9200/intelligence_index/_search?q=(database_specific.github_reviewed:true)%20AND%20(database_specific.severity:CRITICAL)&sort=modified:desc&pretty=true&track_total_hits=true
+// http://127.0.0.1:9200/intelligence_index/_count?q=(database_specific.github_reviewed:true)%20AND%20(database_specific.severity:CRITICAL)
 export default {
   data () {
     return {
