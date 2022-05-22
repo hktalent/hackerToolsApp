@@ -61,6 +61,7 @@
     "urllib": "^2.38.0",
     "vue": "^2.6.14",
     "vue-d3-network": "^0.1.28",
+    "vue-markdown": "^2.2.4",
     "vue-okr-tree": "^1.0.10",
     "vue-property-decorator": "^8.5.1",
     "vue-resource": "^1.5.3",
