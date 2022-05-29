@@ -31,13 +31,12 @@
       </el-row>
       <el-row class="myrow">
         <el-form-item label-width="0">
-          <el-button type="primary" round elevation="19" @click="saveSshConfig" ref="r7">保存</el-button>
+          <el-button type="primary" round elevation="19" @click="saveSshConfig" ref="r7">save</el-button>
         </el-form-item>
       </el-row>
     </el-form>
 </template>
 <style>
-.myrow {;}
 .myrow .el-form-item{padding:0;height:auto !important;margin:0 !important}
 .el-form-item {
   text-align: center;

@@ -29,7 +29,7 @@ module.exports = defineConfig({
         ws: true,
         changeOrigin: true
       },
-      '/HackTools/': {
+      '/51pwn/': {
         target: 'http://127.0.0.1:8081',
         ws: true,
         changeOrigin: true
