@@ -11,6 +11,9 @@ yarn add sass@~1.32 sass-loader deepmerge -D
 
 # 安装
 vue add electron-builder
+## 后端支持
+https://github.com/hktalent/goSqlite_gorm
+
 # apache 开源移动框架
 yarn global add cordova
 # 安装
