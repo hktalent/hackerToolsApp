@@ -4,6 +4,7 @@
 <img width=950 src=https://user-images.githubusercontent.com/18223385/168472883-4bfb402c-8c90-46c0-a8db-a5b22b8b6a25.gif>
 
 # how build
+more see https://github.com/hktalent/goSqlite_gorm
 
 ## server
 ```
