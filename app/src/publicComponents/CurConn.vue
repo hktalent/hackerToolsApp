@@ -3,6 +3,7 @@
     <el-table-column type="expand">
       <template slot-scope="props">
         <el-form label-position="left" inline class="demo-table-expand">
+        <el-form-item label="cmd" class="cmd"><span>{{ props.row.cmd }}</span></el-form-item>
           <el-form-item label="country">
             <span>{{ props.row.ipInfo.country }}</span>
           </el-form-item>
@@ -29,10 +30,10 @@
     <el-table-column label="country" prop="ipInfo.country" width="110px" :sortable="sortable"></el-table-column>
     <el-table-column label="city" prop="ipInfo.city" width="110px" :sortable="sortable"></el-table-column>
     <el-table-column label="org" prop="ipInfo.org" :sortable="sortable"></el-table-column>
-    <el-table-column label="CreatedAt" :formatter="formatter" prop="CreatedAt" width="240" :sortable="sortable"></el-table-column>
     <el-table-column label="cmd" prop="cmd" :sortable="sortable" :show-overflow-tooltip="soft"><template slot="header">
-        <el-input class="myschtb" v-model="search" size="mini" placeholder="输入关键字搜索" @keypress.stop="tmOsch($event)"/>
-      </template></el-table-column>
+      <el-input class="myschtb" v-model="search" size="mini" placeholder="输入关键字搜索" @keypress.stop="tmOsch($event)"/>
+    </template></el-table-column>
+    <el-table-column label="CreatedAt" :formatter="formatter" prop="CreatedAt" :sortable="sortable" width="140"></el-table-column>
   </el-table>
   <div class="block"><el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4"
     :background="sortable"
@@ -56,6 +57,12 @@
     margin-right: 0;
     margin-bottom: 0;
     width: 33%;
+  }
+  .demo-table-expand .cmd {
+    margin-right: 0;
+    margin-bottom: 0;
+    text-align: left;
+    width: 99% !important;
   }
 .el-table {
   height: calc(-30px + 100%) !important;
