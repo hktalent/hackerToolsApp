@@ -1059,7 +1059,7 @@
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
 
-"@electron/get@^1.0.1", "@electron/get@^1.12.4":
+"@electron/get@^1.12.4", "@electron/get@^1.13.0":
   version "1.14.1"
   resolved "https://registry.npmmirror.com/@electron/get/-/get-1.14.1.tgz"
   integrity sha512-BrZYyL/6m0ZXz/lDxy/nlVhQz+WF+iPS6qXolEU8atw7h6v1aYkjwJZ63m+bJMBTxDE66X+r2tPS4a/8C82sZw==
@@ -1844,12 +1844,7 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-17.0.26.tgz"
   integrity sha512-z/FG/6DUO7pnze3AE3TBGIjGGKkvCcGcWINe1C7cADY8hKLJPDYpzsNE37uExQ4md5RFtTCvg+M8Mu1Enyeg2A==
 
-"@types/node@^14.14.31":
-  version "14.18.14"
-  resolved "https://registry.npmjs.org/@types/node/-/node-14.18.14.tgz"
-  integrity sha512-HTgN9C1x8iMFycNAkLKIkJg+D3z1j0/Bm5/CMyzI3bO8a8dS0U1FxlS6hfvg5MPUYqkG3Y1myuje7HUNKLX9Mw==
-
-"@types/node@^14.6.2":
+"@types/node@^14.14.31", "@types/node@^14.6.2":
   version "14.18.16"
   resolved "https://registry.npmmirror.com/@types/node/-/node-14.18.16.tgz"
   integrity sha512-X3bUMdK/VmvrWdoTkz+VCn6nwKwrKCFTHtqwBIaQJNx4RUIBBUFXM00bqPz/DsDd+Icjmzm6/tyYZzeGVqb6/Q==
@@ -5732,12 +5727,12 @@ electron-to-chromium@^1.4.118:
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.118.tgz"
   integrity sha512-maZIKjnYDvF7Fs35nvVcyr44UcKNwybr93Oba2n3HkKDFAtk0svERkLN/HyczJDS3Fo4wU9th9fUQd09ZLtj1w==
 
-electron@^13.0.0:
-  version "13.6.9"
-  resolved "https://registry.npmmirror.com/electron/-/electron-13.6.9.tgz"
-  integrity sha512-Es/sBy85NIuqsO9MW41PUCpwIkeinlTQ7g0ainfnmRAM2rmog3GBxVCaoV5dzEjwTF7TKG1Yr/E7Z3qHmlfWAg==
+electron@^15.5.5:
+  version "15.5.5"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-15.5.5.tgz#796b7822bfb2b045b504e40657674f2869361681"
+  integrity sha512-cGS1ueek14WLvLJlJbId3fmqJLvkr7VuBI0hHt6gpKaj8m2iv/NMteRg0deLgwlxjEF6ZGGNerUJW6a96rNq/Q==
   dependencies:
-    "@electron/get" "^1.0.1"
+    "@electron/get" "^1.13.0"
     "@types/node" "^14.6.2"
     extract-zip "^1.0.3"
 
