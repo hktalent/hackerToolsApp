@@ -118,7 +118,7 @@ export default {
     },
     getData () {
       this.loading = true
-      this.$http.get('/api/v1/cclsts?currentPage=' + this.currentPage4 + '&pageSize=' + this.pageSize).then(function (res) {
+      this.$http.get('/api/v1/cclsts?currentPage=' + (this.currentPage4 - 1) + '&pageSize=' + this.pageSize).then(function (res) {
         res.data = res.data || {}
         this.rowData = res.data.list || []
         this.total = res.data.count
