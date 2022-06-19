@@ -48,20 +48,48 @@ function getUserIP (onNewIP) {
 export default {
   data () {
     return {
+      domainCnt: '',
+      ipTitle: {}
+    }
+  },
+  methods: {
+    getDomainCount () {
+      const _t = this
+      this.$http.get('/51pwn/cnt?t=dc').then(function (res) {
+        if (res.data) {
+          _t.domainCnt = ' Domains Count: ' + res.data.data
+        }
+      }, function (res) { })
+    },
+    getIpTitle (k, w) {
+      const _t = this
+      if (_t.ipTitle[k]) {
+        return
+      }
+      this.$http.get('/51pwn/cnt?t=ip&d=' + k).then(function (res) {
+        if (res.data) {
+          // JSON.stringify(res.data.hits.hits[0]._source, null, ' ')
+          w.document.getElementById(k).title = res.data.data
+          _t.ipTitle[k] = res.data.data
+        }
+      }, function (res) { })
     }
   },
   mounted () {
+    const _t = this
+    _t.getDomainCount()
     getUserIP(function (ip) {
       if (ip.indexOf('0.0.0.0') === -1) {
         window.g_oIps = window.g_oIps || {}
         window.g_CurIps = window.g_CurIps || []
         if (!window.g_oIps[ip]) {
-          window.g_CurIps.push(ip)
+          _t.getIpTitle(ip, window)
+          window.g_CurIps.push('<i id="' + ip + '">' + ip + '</i>')
           window.g_oIps[ip] = 1
         }
       }
       if (window.g_CurIps.length > 0) {
-        document.getElementById('yid').innerHTML = 'Your Ips:' + window.g_CurIps.join('; ')
+        document.getElementById('yid').innerHTML = 'Your Ips:' + window.g_CurIps.join('  ') + _t.domainCnt
       }
     })
   }

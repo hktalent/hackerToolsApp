@@ -60,8 +60,12 @@ export default {
   methods: {
     cvtIps (a) {
       const x = []
-      for (let i = 0; i < a.length; i++) {
-        x.push({ label: '', ip: a[i] })
+      if (typeof a !== 'string') {
+        for (let i = 0; i < a.length; i++) {
+          x.push({ label: '', ip: a[i] })
+        }
+      } else {
+        x.push({ label: '', ip: a })
       }
       return x
     },
