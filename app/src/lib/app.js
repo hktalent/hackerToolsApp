@@ -123,7 +123,7 @@ export default {
         if("IFRAME" !== o1.tagName || !o1.src) {
           return
         }
-        const xD = o1.contentWindow.document, xHo = xD.body, xx01 = xD.getElementById('terminal-container'),_t = this
+        const xD = o1.contentWindow.document, xHo = xD.body, xx01 = xD.querySelector('div.xterm-screen'),_t = this
         _t.imgData = _t.imgData || {}
         if(xx01) {
         this.oStopFlg[x1] = window.setInterval(function() {
