@@ -8728,6 +8728,11 @@ jsesc@~0.5.0:
   resolved "https://registry.npmjs.org/jsesc/-/jsesc-0.5.0.tgz"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
 
+jsmind@^0.4.8:
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/jsmind/-/jsmind-0.4.8.tgz#30a6a7eabd42f560645786a5c4ae2f5f95ab84b8"
+  integrity sha512-+wt82K5D+Ilngo2afcWyZurI6J9xJsUsp+RO+vjeu+MVcDPkAeZKGcHfomCnKwjcupWSp0MOlNB6H3cSUg9bXQ==
+
 json-buffer@3.0.0:
   version "3.0.0"
   resolved "https://registry.npmmirror.com/json-buffer/-/json-buffer-3.0.0.tgz"
@@ -9562,6 +9567,11 @@ mimic-response@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmmirror.com/mimic-response/-/mimic-response-3.1.0.tgz"
   integrity sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==
+
+mind-elixir@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/mind-elixir/-/mind-elixir-1.1.0.tgz#c92852ec840753a2968ee43bfe8ae8788a985dcd"
+  integrity sha512-psDFfnCP8/IAfZ5DGZ73Mza2mosnmy7sPHMct7n5+4Ja62oAwhipOOqa6pubXy5ZRe4LT+huuWsn5rtd/zDTJQ==
 
 mini-css-extract-plugin@^2.5.3:
   version "2.6.0"

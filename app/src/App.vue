@@ -14,8 +14,7 @@
           <el-scrollbar class="myscrollbar">
             <el-menu default-active="2-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
               :collapse="isCollapse">
-              <el-menu-item index="1" @click="handleOpen"> <i class="el-icon-right-open"></i><span
-                  slot="title">打开菜单导航</span> </el-menu-item>
+              <el-menu-item index="1" @click="handleOpen"> <i class="el-icon-right-open"></i><span slot="title">打开菜单导航</span> </el-menu-item>
               <el-submenu index="2">
                 <template slot="title">
                   <i class="el-icon-location"></i>
@@ -31,6 +30,7 @@
         </el-aside>
         <el-main>
           <el-tabs v-model="activeName" type="border-card" @tab-click="fnSt1">
+          <el-tab-pane label="Scan-4-All"><scan4all></scan4all></el-tab-pane>
             <el-tab-pane :label="rmcnlb" class="myPaneCard" effect="dark" name="tb01">
               <div id="CntTags" title="click filter">
                 <a href="#" v-for="item in aRmtTagss" :key="item.tag" @click="filterMyCard(item.tag)">{{ item.tag }}[ {{
