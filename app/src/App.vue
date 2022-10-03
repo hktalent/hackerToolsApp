@@ -37,23 +37,23 @@
                     item.cnt
                 }} ]</a>
               </div>
-              <el-card shadow="hover" v-for="item in aRmtSvsLists" :key="item.id" :id="'cdId' + item.id"
-                :label="item.title" :name="item.id">
-                <a href="#" @click="'#' + item.id">
+              <el-card shadow="hover" v-for="item in aRmtSvsLists" :key="item.ID" :id="'cdId' + item.ID"
+                :label="item.title" :name="item.ID">
+                <a href="#" @click="'#' + item.ID">
                   <div class="winCtrl">
                     <i id="fltMneu">{{ item.title }}</i>
                     <i class="icon-plus" title="Duplicate a window so that multiple windows open a target server"
-                      @click="fnDuplicate(item.id)"></i>
-                    <i class="icon-cog" title="config" @click="fnEdit(item.id)"></i>
-                    <i class="icon-eye-close" title="Disconnect" @click="disconnect($event, item.id)"></i>
+                      @click="fnDuplicate(item.ID)"></i>
+                    <i class="icon-cog" title="config" @click="fnEdit(item.ID)"></i>
+                    <i class="icon-eye-close" title="Disconnect" @click="disconnect($event, item.ID)"></i>
                     <i class="icon-mail-reply" title="back to view" @click="fnMinWin"></i>
                     <i class="icon-external-link-sign" title="max window" @click="fnMaxWin"></i>
                     <i @click="fnFsc" class="icon-fullscreen" title="fullscreen"></i>
                   </div>
-                  <div class="myImg" :id="'img' + item.id" :idDt="item.id" @click="handleCommand('/conn/' + item.id)"
+                  <div class="myImg" :id="'img' + item.ID" :idDt="item.ID" @click="handleCommand('/conn/' + item.ID)"
                     title="This is the most recent view, click to start connecting"><img :src="item.imgData" /></div>
                   <i class="clearfix"></i>
-                  <iframe src="" class="ifrm" @load="autoSaveImg($event, item.id)" :id="'ifrm' + item.id"></iframe>
+                  <iframe src="" class="ifrm" @load="autoSaveImg($event, item.ID)" :id="'ifrm' + item.ID"></iframe>
                 </a>
               </el-card>
             </el-tab-pane>

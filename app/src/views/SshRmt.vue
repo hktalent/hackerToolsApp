@@ -82,9 +82,9 @@ export default {
   watch: {
     '$route.params': {
       handler: function (x) {
-        if (this.$route.params.id && this.$route.params.id !== this.lstId) {
-          this.lstId = this.$route.params.id
-          axios.get('/api/v1/rsc/s/' + this.$route.params.id).then(resp => {
+        if (this.$route.params.ID && this.$route.params.ID !== this.lstId) {
+          this.lstId = this.$route.params.ID
+          axios.get('/api/v1/rsc/s/' + this.$route.params.ID).then(resp => {
             this.form = resp.data
             this.tags = (resp.data.tags || '').split(/[,;]/)
             this.form.tags = ''
