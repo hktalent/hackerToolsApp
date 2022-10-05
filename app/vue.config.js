@@ -10,27 +10,27 @@ module.exports = defineConfig({
         changeOrigin: true
       },
       '/api/v1/': {
-        target: 'http://127.0.0.1:8081',
+        target: 'https://127.0.0.1:8081',
         ws: true,
         changeOrigin: true
       },
       '/md/': {
-        target: 'http://127.0.0.1:8081',
+        target: 'https://127.0.0.1:8081',
         ws: true,
         changeOrigin: true
       },
       '/conn/': {
-        target: 'http://127.0.0.1:8081',
+        target: 'https://127.0.0.1:8081',
         ws: true,
         changeOrigin: true
       },
       '/ssh/': {
-        target: 'http://127.0.0.1:8081',
+        target: 'https://127.0.0.1:8081',
         ws: true,
         changeOrigin: true
       },
       '/51pwn/': {
-        target: 'http://127.0.0.1:8081',
+        target: 'https://127.0.0.1:8081',
         ws: true,
         changeOrigin: true
       }

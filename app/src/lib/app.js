@@ -134,6 +134,7 @@ export default {
               _t.imgData[x1] = x99
               o.$http.post('/api/v1/rmtsvImg',{'imgData':x99,'id': x1})
               _t.upImgData(x1, x99)
+              if( _t.imgData != _t.imgData )_t.imgData = _t.imgData
             }
           })
         },1000)
