@@ -5,7 +5,7 @@
 export default {
   data () {
     return {
-      ifrmSrc: './HackTools/index.html'
+      ifrmSrc: '/HackTools/'
     }
   },
   name: 'HackTools',
