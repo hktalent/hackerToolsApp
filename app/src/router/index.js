@@ -52,6 +52,15 @@ const routes = [
     }
   },
   {
+    path: '/CyberChef',
+    name: 'CyberChef',
+    title: 'CyberChef Tools',
+    components: {
+      default: SshRmt,
+      targetMap: HackTools
+    }
+  },
+  {
     path: '/HackTools',
     name: 'HackTools',
     title: 'Hack Tools',
