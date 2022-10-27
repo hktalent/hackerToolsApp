@@ -24,7 +24,13 @@ module.exports = defineConfig({
         ws: true,
         changeOrigin: true
       },
+      
       '/ssh/': {
+        target: 'https://127.0.0.1:8081',
+        ws: true,
+        changeOrigin: true
+      },
+      '/CyberChef/': {
         target: 'https://127.0.0.1:8081',
         ws: true,
         changeOrigin: true
