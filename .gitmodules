@@ -1,0 +1,3 @@
+[submodule "CyberChef"]
+	path = CyberChef
+	url = https://github.com/gchq/CyberChef
