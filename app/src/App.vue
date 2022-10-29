@@ -38,9 +38,10 @@
                 </template>
                 <el-menu-item-group>
                   <el-menu-item index="x1" @click="fnMyClkRt('HackTools')">Hack Tools</el-menu-item>
-                  <el-menu-item index="x1" @click="fnMyClkRt('CyberChef')">CyberChef Tools</el-menu-item>
-                  <el-menu-item index="x2" @click="fnMyClkRt('TargetMap')">TargetMap</el-menu-item>
-                  <el-menu-item index="x3" @click="fnMyClkRt('SubDomain')">SubDomain Scan</el-menu-item>
+                  <el-menu-item index="x2" @click="fnMyClkRt('CyberChef')">CyberChef Tools</el-menu-item>
+                  <el-menu-item index="x3" @click="fnMyClkRt('TargetMap')">TargetMap</el-menu-item>
+                  <el-menu-item index="x4" @click="fnMyClkRt('SubDomain')">SubDomain Scan</el-menu-item>
+                  <el-menu-item index="x5" @click="fnMyClkRt('index')">Hacker Search</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
             </el-menu>
