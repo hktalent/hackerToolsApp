@@ -782,7 +782,6 @@ network:
           - ":weblogic/corba/cos/naming/NamingContextAny:"
         condition: and
 ```
-**运行结果示例**<br />![image.png](https://cdn.nlark.com/yuque/0/2022/png/27284524/1650957579166-8ee313d4-0ff3-4752-9c04-2ecc18ba6ca6.png#clientId=uc5435299-b779-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=126&id=u6fe72943&margin=%5Bobject%20Object%5D&name=image.png&originHeight=252&originWidth=1440&originalType=binary&ratio=1&rotation=0&showTitle=false&size=110178&status=done&style=none&taskId=u008c4bb2-6577-49f9-b955-eee10e34d4f&title=&width=720)
 <a name="AFMEV"></a>
 # 3 Headless浏览器模式
 Headless适合哪些具有复杂输入，并页面检测了输入行为的情况，以及动态性较高系统等安全检测<br />缺点是，整个检测过程比较慢，都需要等待，有时候容易陷入假死，而这个时候nuclei退出了，Headless依然还在运行。<br />Headless还支持文件上传、css、xpath等选择器，截屏幕图等等功能<br />更多可以参考：[https://nuclei.projectdiscovery.io/templating-guide/protocols/headless/#files](https://nuclei.projectdiscovery.io/templating-guide/protocols/headless/#files)
@@ -958,7 +957,7 @@ requests:
 答案：当前版本已经支持
 <a name="IQ04p"></a>
 ### 5.3.2 请求中的path都有哪些
-**变量以{{开头，以}}结尾，区分大小写**<br />**{{BaseURL}} **- 这将在请求的运行时替换为目标文件中指定的输入URL。<br />**{{RootURL}} **- 这将在请求的运行时替换为目标文件中指定的根URL。<br />**{{Hostname}} **- 主机名变量被主机名取代，包括运行时目标端口。<br />**{{Host}} **- 这将在请求运行时由目标文件中指定的输入主机替换。<br />**{{Port}} **- 这将在请求的运行时替换为目标文件中指定的输入端口。<br />**{{Path}} **- 这将在请求的运行时替换为目标文件中指定的输入路径。<br />**{{File}} **- 这将在请求的运行时替换为目标文件中指定的输入文件名。<br />**{{Scheme}} **- 这将在请求运行时通过目标文件中指定的协议方案替换。<br />示例：<br />![image.png](https://cdn.nlark.com/yuque/0/2022/png/27284524/1651048351928-2bbbe745-d846-49d9-800d-1716e10a26b9.png#clientId=ua9fb96e9-f7ee-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=407&id=u659e2a26&margin=%5Bobject%20Object%5D&name=image.png&originHeight=814&originWidth=716&originalType=binary&ratio=1&rotation=0&showTitle=false&size=61931&status=done&style=none&taskId=u44f5b05d-08d8-40bc-a8c4-7d7a5e38857&title=&width=358)
+**变量以{{开头，以}}结尾，区分大小写**<br />**{{BaseURL}} **- 这将在请求的运行时替换为目标文件中指定的输入URL。<br />**{{RootURL}} **- 这将在请求的运行时替换为目标文件中指定的根URL。<br />**{{Hostname}} **- 主机名变量被主机名取代，包括运行时目标端口。<br />**{{Host}} **- 这将在请求运行时由目标文件中指定的输入主机替换。<br />**{{Port}} **- 这将在请求的运行时替换为目标文件中指定的输入端口。<br />**{{Path}} **- 这将在请求的运行时替换为目标文件中指定的输入路径。<br />**{{File}} **- 这将在请求的运行时替换为目标文件中指定的输入文件名。<br />**{{Scheme}} **- 这将在请求运行时通过目标文件中指定的协议方案替换。<br />示例：<br />
 <a name="jjZwi"></a>
 ### 5.3.3 YAML中6种安全级别都有哪些？
 严重程度从高到低<br />critical,high,medium,low,info,unknown

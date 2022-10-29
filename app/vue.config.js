@@ -5,7 +5,7 @@ module.exports = defineConfig({
     port: 8082,
     proxy: {
       '/.*_index/': {
-        target: 'http://127.0.0.1:9200',
+        target: 'http://127.0.0.1:8081',
         ws: true,
         changeOrigin: true
       },
@@ -34,7 +34,7 @@ module.exports = defineConfig({
         ws: true,
         changeOrigin: true
       },
-      '/index/': {
+      '/indexes/': {
         target: 'https://127.0.0.1:8081',
         ws: true,
         changeOrigin: true

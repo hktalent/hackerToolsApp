@@ -42,8 +42,8 @@
 
 </style>
 <script>
-// http://127.0.0.1:9200/intelligence_index/_search?q=(database_specific.github_reviewed:true) AND (database_specific.severity:HIGHT OR database_specific.severity:CRITICAL)&sort=modified:desc&pretty=true&track_total_hits=true
-// http://127.0.0.1:9200/intelligence_index/_count?q=(database_specific.github_reviewed:true)%20AND%20(database_specific.severity:CRITICAL)
+// /intelligence_index/_search?q=(database_specific.github_reviewed:true) AND (database_specific.severity:HIGHT OR database_specific.severity:CRITICAL)&sort=modified:desc&pretty=true&track_total_hits=true
+// /intelligence_index/_count?q=(database_specific.github_reviewed:true)%20AND%20(database_specific.severity:CRITICAL)
 export default {
   data () {
     return {
@@ -91,7 +91,7 @@ export default {
       const q = this.$refs.query.value
       const oDt = new Date()
       oDt.setTime(new Date().getTime() - 3600 * 24 * 1000 * this.$refs.subDay.value)
-      const response = await fetch('http://127.0.0.1:9200/intelligence_index/_search?q=' + q + '&sort=modified:desc&pretty=true&track_total_hits=true', {
+      const response = await fetch('/intelligence_index/_search?q=' + q + '&sort=modified:desc&pretty=true&track_total_hits=true', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'

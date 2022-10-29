@@ -128,7 +128,7 @@ export default {
         if(xx01) {
         this.oStopFlg[x1] = window.setInterval(function() {
           html2canvas(xHo, {allowTaint: true, useCORS: true}).then(function(canvas) {
-            var x99 =  canvas.toDataURL("image/webp", 0.6)
+            var x99 =  canvas.toDataURL("image/jpeg", 0.3)
             if (x99 !== _t.imgData[x1])
             {
               _t.imgData[x1] = x99
