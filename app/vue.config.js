@@ -3,9 +3,10 @@ module.exports = defineConfig({
   devServer: {
     host: 'localhost',
     port: 8082,
+    runtimeCompiler: true,
     proxy: {
       '/.*_index/': {
-        target: 'http://127.0.0.1:8081',
+        target: 'https://127.0.0.1:8081',
         ws: true,
         changeOrigin: true
       },

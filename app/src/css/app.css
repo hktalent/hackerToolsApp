@@ -4,7 +4,7 @@
 body {
   margin: 0
 }
-.el-main{padding:0 !important;height:calc(-110px + 100vh)}
+.el-main{padding:0 !important;height:calc(-88px + 100vh)}
 .winCtrl i:hover{
   background-color: #f5bc42;
   color: red;
@@ -81,12 +81,12 @@ height: calc(-40px + 100%);
 .el-card{background-color:#fff}
 .el-drawer {
   z-index: 99999;
-  height: calc(-100px + 100vh);
+  height: calc(-78px + 100vh);
   margin-top: 60px
 }
 
 .el-tab-pane{
-  height: calc(-188px + 100vh);
+  height: calc(-166px + 100vh);
   overflow: auto;
   padding:0 !important;
 }
@@ -121,4 +121,18 @@ height: calc(-40px + 100%);
 
 .clearfix:after {
   clear: both
+}
+
+header .el-col{
+  text-align: center;
+  vertical-align: middle;
+}
+
+.el-menu--horizontal > .el-menu-item,header{
+  height: 38px !important;
+  line-height: 38px !important;
+}
+
+.hra{
+  text-align: right;
 }

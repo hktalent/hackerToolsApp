@@ -1,22 +1,31 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header background="trasla">
-        <el-menu
-          ref="menu"
-          router
-          :default-active="activeIndex2"
-          class="el-menu-demo"
-          mode="horizontal"
-          @select="handleCommand"
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b"
-        >
-          <el-menu-item index="/">Home</el-menu-item>
-          <el-menu-item index="/sshRmt" @click="fnSt">Config</el-menu-item>
-          <el-menu-item index="/">About</el-menu-item>
-        </el-menu>
+      <el-header background="trasla" style="background-color:rgb(84, 92, 100);">
+        <el-row :gutter="24" style="margin:0">
+          <el-col :span="8">
+            <el-menu
+            ref="menu"
+            router
+            :default-active="activeIndex2"
+            class="el-menu-demo"
+            mode="horizontal"
+            @select="handleCommand"
+            background-color="#545c64"
+            text-color="#fff"
+            active-text-color="#ffd04b">
+            <el-menu-item index="/">Home</el-menu-item>
+            <el-menu-item index="/sshRmt" @click="fnSt">Config</el-menu-item>
+            <el-menu-item index="/">About</el-menu-item>
+          </el-menu>
+          </el-col>
+          <el-col :span="14">
+            <el-input v-model="input" style="width:100%" placeholder="search"></el-input>
+          </el-col>
+          <el-col :span="2" style="text-aling:right;color:white" class="hra">
+            <el-link type="primary" ref="/login">Login</el-link>
+          </el-col>
+      </el-row>
       </el-header>
       <el-container>
         <el-aside width="70px">
