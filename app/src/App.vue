@@ -63,16 +63,12 @@
               :label="rmcnlb"
               class="myPaneCard"
               effect="dark"
-              name="tb01"
-            >
+              name="tb01">
               <div id="CntTags" title="click filter">
-                <a
-                  href="#"
+                <a href="#"
                   v-for="item in aRmtTagss"
                   :key="item.tag"
-                  @click="filterMyCard(item.tag)"
-                  >{{ item.tag }}[ {{ item.cnt }} ]</a
-                >
+                  @click="filterMyCard(item.tag)">{{ item.tag }}[ {{ item.cnt }} ]</a>
               </div>
               <el-card
                 shadow="hover"
@@ -80,8 +76,7 @@
                 :key="item.ID"
                 :id="'cdId' + item.ID"
                 :label="item.title"
-                :name="item.ID"
-              >
+                :name="item.ID">
                 <a href="#" @click="'#' + item.ID">
                   <div class="winCtrl">
                     <i id="fltMneu">{{ item.title }}</i>
