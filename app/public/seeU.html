@@ -3,6 +3,7 @@
 <meta charset="UTF-8"><meta content="origin" name="referrer">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>i see you</title>
+<script src="./jquery.js"></script>
 <script src="./d3.min.js"></script>
 <script src="./topojson.min.js"></script>
 <script src="./datamaps.world.min.js"></script><style>
@@ -35,140 +36,27 @@ function fnRender(){
         defaultFill: '#ABDDA4',
         X: 'red'
     }})
+    var oSvD = {latitude: 38.895111,longitude: -77.036667},
+        oDLists = [];
 
-    var oSvD = {latitude: 38.895111,longitude: -77.036667};
-    var presidentialTrips = [
-        {
-            origin: oSvD,
-            destination: {
-                name: 'Tsar Bomba',
-                radius: 40,
-                yeild: 1600,
-                fillKey: 'X',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: 32.066667,
-                longitude: 34.783333 
-            }
-        },
-        {
-            origin: oSvD,
-            destination: {
-                name: 'Tsar Bomba',
-                radius: 40,
-                yeild: 1600,
-                fillKey: 'X',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: 19.433333,
-                longitude: -99.133333
-            }
-        },
-        {
-            origin: oSvD,
-            destination: {
-                name: 'Tsar Bomba',
-                radius: 40,
-                yeild: 1600,
-                fillKey: 'X',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: 9.933333,
-                longitude: -84.083333
-            }
-        },
-        {
-            origin: oSvD,
-            destination: {
-                name: 'Tsar Bomba',
-                radius: 40,
-                yeild: 1600,
-                fillKey: 'X',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: 54.597 ,
-                longitude: -5.93
-            }
-        },
-        {
-            origin: oSvD,
-            destination: {
-                name: 'Tsar Bomba',
-                radius: 40,
-                yeild: 1600,
-                fillKey: 'X',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: 52.516667,
-                longitude: 13.383333 
-            }
-        },
-        {
-            origin: oSvD,
-            destination: {
-                name: 'Tsar Bomba',
-                radius: 40,
-                yeild: 1600,
-                fillKey: 'X',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: 14.692778,
-                longitude: -17.446667
-            }
-        },
-        {
-            origin: oSvD,
-            destination: {
-                name: 'Tsar Bomba',
-                radius: 40,
-                yeild: 1600,
-                fillKey: 'X',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: -26.204444,
-                longitude: 28.045556
-            }
-        },
-                {
-            origin: oSvD,
-            destination: {
-                name: 'Tsar Bomba',
-                radius: 40,
-                yeild: 1600,
-                fillKey: 'X',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: -6.8,
-                longitude: 39.283333 
-            }
-        },
-                {
-            origin: oSvD,
-            destination: {
-                name: 'Tsar Bomba',
-                radius: 40,
-                yeild: 1600,
-                fillKey: 'X',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: 59.329444,
-                longitude: 18.068611
-            }
-        },
-        {
-            origin: oSvD,
-            destination: {
-                name: 'Tsar Bomba',
-                radius: 40,
-                yeild: 1600,
-                fillKey: 'X',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: 59.95 ,
-                longitude: 30.3
-            }
+    jQuery.ajax({
+        url: "/getAcIps",
+        method: "GET",
+        "async":false,
+        "success": function(data){
+            oSvD = data["s"]
+            oDLists = data["list"]
         }
-    ];
+    })
+    function DoData(d){
+        for(var i = 0; i < d.length; i++){
+            d[i]['fillKey']= 'X'
+            d[i]={'destination': oSvD,"origin": d[i]}
+        }
+        return d
+    }
+    
+    var presidentialTrips = DoData(oDLists);
     /*
     每个对象可以有更多附加信息
     radius 可以定义圆圈大小

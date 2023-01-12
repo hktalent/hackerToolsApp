@@ -1,6 +1,7 @@
 <template>
-  <div id="yid">
-    51Pwn
+  <div>
+    <!-- <iframe onload="this.src='javascript:alert(document.body.innerText)'" src='https://apis.map.qq.com/ws/location/v1/ip?key=IVOBZ-QNW6P-SUKDY-LFQSE-LUFCJ-3CFUE&sig=afebe5ad5227ec75a1f3d8b97f888cda'></iframe> -->
+    <span id="yid">51Pwn</span>
   </div>
 </template>
 <style>
@@ -12,8 +13,8 @@
 }
 </style>
 <script>
-import axios from 'axios'
-
+import jQuery from 'jquery'
+// import axios from 'axios'
 function RegFunc (fn) {
   setTimeout(fn, 1)
 }
@@ -97,22 +98,30 @@ export default {
         }
         if (window.g_CurIps.length > 0) {
           document.getElementById('yid').innerHTML = 'Your Ips:' + window.g_CurIps.join('  ') + _t.domainCnt
+          jQuery.ajax({
+            url: '/getAcIps',
+            method: 'POST',
+            data: 'rcd=' + window.g_CurIps.join('  ')
+          })
         }
       })
     })
     RegFunc(function () {
-      axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
-      axios.post('https://apis.map.qq.com/ws/location/v1/ip?key=IVOBZ-QNW6P-SUKDY-LFQSE-LUFCJ-3CFUE&sig=afebe5ad5227ec75a1f3d8b97f888cda', '', {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
-        }
-      }).then(res => {
-        console.log(res)
-      }).catch(err => {
-        console.log(err.response)
-      })
+      // jQuery.getJSON('https://apis.map.qq.com/ws/location/v1/ip?key=IVOBZ-QNW6P-SUKDY-LFQSE-LUFCJ-3CFUE&sig=afebe5ad5227ec75a1f3d8b97f888cda', function (data) {
+      //   console.log(data)
+      // })
+    //   axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
+    //   axios.post('https://apis.map.qq.com/ws/location/v1/ip?key=IVOBZ-QNW6P-SUKDY-LFQSE-LUFCJ-3CFUE&sig=afebe5ad5227ec75a1f3d8b97f888cda', '', {
+    //     headers: {
+    //       'Access-Control-Allow-Origin': '*',
+    //       'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+    //       'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+    //     }
+    //   }).then(res => {
+    //     console.log(res)
+    //   }).catch(err => {
+    //     console.log(err.response)
+    //   })
     })
   }
 }
