@@ -12,7 +12,7 @@ export default {
     }
   },
   mounted () {
-    this.$refs.myIfrm1.src = '/seeU.html'
+    this.$refs.myIfrm1.src = './seeU.html'
   }
 }
 

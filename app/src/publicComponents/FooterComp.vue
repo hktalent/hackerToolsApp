@@ -89,19 +89,22 @@ export default {
       getUserIP(function (ip) {
         if (ip.indexOf('0.0.0.0') === -1) {
           window.g_oIps = window.g_oIps || {}
+          window.g_oIps1 = window.g_oIps1 || []
           window.g_CurIps = window.g_CurIps || []
           if (!window.g_oIps[ip]) {
             _t.getIpTitle(ip, window)
             window.g_CurIps.push('<i id="' + ip + '">' + ip + '</i>')
             window.g_oIps[ip] = 1
+            window.g_oIps1.push(ip)
           }
         }
+
         if (window.g_CurIps.length > 0) {
           document.getElementById('yid').innerHTML = 'Your Ips:' + window.g_CurIps.join('  ') + _t.domainCnt
           jQuery.ajax({
             url: '/getAcIps',
             method: 'POST',
-            data: 'rcd=' + window.g_CurIps.join('  ')
+            data: 'rcd=' + window.g_oIps1.join('  ')
           })
         }
       })
