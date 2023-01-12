@@ -22,6 +22,7 @@ export default {
   },
   data () {
     return {
+      search: '',
       tabPosition: 'right',
       activeName: 'tb01',
       ifrmSrc: '',
@@ -73,6 +74,9 @@ export default {
         } else {
           this.$router.push({name: 'sshRmt', replace: true}).catch(err => {})
         }
+      }
+      if (x.$el.id === 'pane-tb03') {
+        document.querySelector("#myIsu iframe.ifrm").contentWindow.fnRender()
       }
     },
     fnSt () {

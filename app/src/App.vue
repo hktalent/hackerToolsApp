@@ -20,7 +20,7 @@
           </el-menu>
           </el-col>
           <el-col :span="14">
-            <el-input v-model="input" style="width:100%" placeholder="search"></el-input>
+            <el-input v-model="search" style="width:100%" placeholder="search"></el-input>
           </el-col>
           <el-col :span="2" style="text-aling:right;color:white" class="hra">
             <el-link type="primary" ref="/login">Login</el-link>
@@ -58,7 +58,7 @@
         </el-aside>
         <el-main>
           <el-tabs v-model="activeName" type="border-card" @tab-click="fnSt1">
-            <el-tab-pane label="Scan-4-All"><scan4all></scan4all></el-tab-pane>
+            <el-tab-pane label="scan4all"><scan4All></scan4All></el-tab-pane>
             <el-tab-pane
               :label="rmcnlb"
               class="myPaneCard"
@@ -143,9 +143,10 @@
             <el-tab-pane label="WorkSpance" name="tb02">
               <router-view name="targetMap"></router-view>
             </el-tab-pane>
-            <el-tab-pane label="Intelligence"
-              ><IntelligenceView></IntelligenceView
-            ></el-tab-pane>
+            <el-tab-pane label="Intelligence"><IntelligenceView></IntelligenceView></el-tab-pane>
+            <el-tab-pane label="SeeYou" name="tb03">
+              <seeuMap id="myIsu"></seeuMap>
+            </el-tab-pane>
           </el-tabs>
         </el-main>
       </el-container>

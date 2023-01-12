@@ -5,6 +5,8 @@ import SshRmt from '../views/SshRmt.vue'
 import TargetMap from '../components/TargetMap.vue'
 import HackTools from '../publicComponents/HackTools.vue'
 import SubDomain from '../publicComponents/SubDomain.vue'
+import scan4all from '../publicComponents/Scan4All.vue'
+import seeuMap from '../publicComponents/seeuMap.vue'
 
 // 定义加载的路由数组
 const routerList = []
@@ -32,6 +34,24 @@ const routes = [
     name: 'home',
     title: '51pwn hacker tools',
     component: AboutView
+  },
+  {
+    path: '/seeuMap',
+    name: 'seeuMap',
+    title: 'seeuMap platform',
+    components: {
+      default: seeuMap,
+      targetMap: seeuMap
+    }
+  },
+  {
+    path: '/scan4all',
+    name: 'scan4All',
+    title: 'ScanAll platform',
+    components: {
+      default: scan4all,
+      targetMap: scan4all
+    }
   },
   {
     path: '/sshRmt',

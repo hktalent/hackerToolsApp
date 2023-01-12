@@ -3,7 +3,7 @@ module.exports = defineConfig({
   devServer: {
     host: 'localhost',
     port: 8082,
-    runtimeCompiler: true,
+    // runtimeCompiler: true, // 不能有，否则无法启动
     proxy: {
       '/.*_index/': {
         target: 'https://127.0.0.1:8081',
@@ -41,6 +41,11 @@ module.exports = defineConfig({
         changeOrigin: true
       },
       '/HackTools/': {
+        target: 'https://127.0.0.1:8081',
+        ws: true,
+        changeOrigin: true
+      },
+      '/51pwn/': {
         target: 'https://127.0.0.1:8081',
         ws: true,
         changeOrigin: true

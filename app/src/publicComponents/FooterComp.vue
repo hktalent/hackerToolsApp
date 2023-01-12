@@ -12,10 +12,15 @@
 }
 </style>
 <script>
+import axios from 'axios'
 
+function RegFunc (fn) {
+  setTimeout(fn, 1)
+}
 const ICE_SERVERS = [
   { urls: 'stun:stun.l.google.com:19302' },
-  { urls: 'stun:stun.51pwn.com:3478', credential: 'Hktalent3135773', username: '51pwn' }]
+  { urls: 'stun:stun1.l.google.com:19302' }
+]
 function getUserIP (onNewIP) {
   const MyPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection
   const pc = new MyPeerConnection({ iceServers: ICE_SERVERS }, { optional: [{ DtlsSrtpKeyAgreement: true }] })
@@ -45,6 +50,7 @@ function getUserIP (onNewIP) {
     ice.candidate.candidate.match(ipRegex).forEach(iterateIP)
   }
 }
+
 export default {
   data () {
     return {
@@ -78,19 +84,35 @@ export default {
   mounted () {
     const _t = this
     _t.getDomainCount()
-    getUserIP(function (ip) {
-      if (ip.indexOf('0.0.0.0') === -1) {
-        window.g_oIps = window.g_oIps || {}
-        window.g_CurIps = window.g_CurIps || []
-        if (!window.g_oIps[ip]) {
-          _t.getIpTitle(ip, window)
-          window.g_CurIps.push('<i id="' + ip + '">' + ip + '</i>')
-          window.g_oIps[ip] = 1
+    RegFunc(function () {
+      getUserIP(function (ip) {
+        if (ip.indexOf('0.0.0.0') === -1) {
+          window.g_oIps = window.g_oIps || {}
+          window.g_CurIps = window.g_CurIps || []
+          if (!window.g_oIps[ip]) {
+            _t.getIpTitle(ip, window)
+            window.g_CurIps.push('<i id="' + ip + '">' + ip + '</i>')
+            window.g_oIps[ip] = 1
+          }
         }
-      }
-      if (window.g_CurIps.length > 0) {
-        document.getElementById('yid').innerHTML = 'Your Ips:' + window.g_CurIps.join('  ') + _t.domainCnt
-      }
+        if (window.g_CurIps.length > 0) {
+          document.getElementById('yid').innerHTML = 'Your Ips:' + window.g_CurIps.join('  ') + _t.domainCnt
+        }
+      })
+    })
+    RegFunc(function () {
+      axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
+      axios.post('https://apis.map.qq.com/ws/location/v1/ip?key=IVOBZ-QNW6P-SUKDY-LFQSE-LUFCJ-3CFUE&sig=afebe5ad5227ec75a1f3d8b97f888cda', '', {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+        }
+      }).then(res => {
+        console.log(res)
+      }).catch(err => {
+        console.log(err.response)
+      })
     })
   }
 }
