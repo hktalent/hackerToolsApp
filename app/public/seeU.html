@@ -12,9 +12,7 @@ body{
     width:100%; height:100%;
     position:absolute;top:0px;left:0px;right:0px;bottom:0px;
 }
-</style>
-</head>
-<body>
+</style></head><body>
 <div id="seeUMap" style="margin:0;padding:0;width: 100%; height: 100%;"></div>
 <script>
 function fnRender(){
@@ -65,8 +63,6 @@ function fnRender(){
     for(var i = 0; i < presidentialTrips.length; i++){
         s = presidentialTrips[i].origin
         if(s){
-            presidentialTrips[i].origin = presidentialTrips[i].destination
-            presidentialTrips[i].destination=s
             oP1.push(presidentialTrips[i].origin)
         }
     }
