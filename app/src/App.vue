@@ -58,6 +58,9 @@
         </el-aside>
         <el-main>
           <el-tabs v-model="activeName" type="border-card" @tab-click="fnSt1">
+            <el-tab-pane label="SeeYou" name="tb03">
+              <seeuMap id="myIsu"></seeuMap>
+            </el-tab-pane>
             <el-tab-pane label="scan4all"><scan4All></scan4All></el-tab-pane>
             <el-tab-pane
               :label="rmcnlb"
@@ -144,9 +147,6 @@
               <router-view name="targetMap"></router-view>
             </el-tab-pane>
             <el-tab-pane label="Intelligence"><IntelligenceView></IntelligenceView></el-tab-pane>
-            <el-tab-pane label="SeeYou" name="tb03">
-              <seeuMap id="myIsu"></seeuMap>
-            </el-tab-pane>
           </el-tabs>
         </el-main>
       </el-container>
