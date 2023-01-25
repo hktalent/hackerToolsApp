@@ -275,7 +275,7 @@ for(var i = 0; i < a.length;i++){
 
 function fnDoacList(oDLists){
     oDLists.sort(function(a,b){
-        return b.blacklist || a.radius < b.radius
+        return a.radius < b.radius
     })
     var oipLst = $('#ipLst')
     oipLst.css({"top": ($(document).height()-425) + "px"})

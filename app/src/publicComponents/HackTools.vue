@@ -5,7 +5,7 @@
 export default {
   data () {
     return {
-      ifrmSrc: '/' + this.$route.meta.toSrc + '/'
+      ifrmSrc: '/' + (this.$route.meta.toSrc || '') + '/'
     }
   },
   name: 'HackTools',

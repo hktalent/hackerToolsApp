@@ -1,5 +1,5 @@
 <template><el-main>
-  <iframe ref="myIfrm1" v-if="ifIframe" class="ifrm"></iframe></el-main>
+  <iframe ref="myIfrm1" src="" v-if="ifIframe" class="ifrm"></iframe></el-main>
 </template>
 
 <script>
@@ -8,7 +8,7 @@ export default {
   data () {
     return {
       ifIframe: true,
-      publicPath: process.env.BASE_URL
+      publicPath: process.env.BASE_URL || './'
     }
   },
   mounted () {
