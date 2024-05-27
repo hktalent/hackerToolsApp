@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="//cdn.jsdelivr.net/npm/jsmind@0.6/style/jsmind.css"
+        />
+        <script
+            type="text/javascript"
+            src="//cdn.jsdelivr.net/npm/jsmind@0.6/es6/jsmind.js"
+        ></script>
+        <!--
+            enable draggable node feature
+            <script type="text/javascript" src="//cdn.jsdelivr.net/npm/jsmind@0.6/es6/jsmind.draggable-node.js"></script>
+        -->
+    </head>
+    <body>
+        <div id="jsmind_container"></div>
+
+        <script type="text/javascript">
+            var mind = {
+                // 3 data formats were supported ...
+                // see documents for more information
+            };
+            var options = {
+                container: 'jsmind_container',
+                theme: 'orange',
+                editable: true,
+            };
+            var jm = new jsMind(options);
+            jm.show(mind);
+        </script>
+    </body>
+</html>
